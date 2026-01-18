@@ -10,6 +10,14 @@
         </head>
    
 <body>
+
+    <script>
+function play(file) {
+  let audio = new Audio(file);
+  audio.play();
+}
+  </script>    
+    
      <h1> NerpX </h1>
     
     <center> 
@@ -17,7 +25,7 @@
 
 
 
-<a href="https://github.com" Style="color:red; text-decoration: none;"> [Visit Github] </a> &nbsp
+<a href="https://github.com" Style="color:red; text-decoration: none;"> [Visit Github] </a> &nbsp 
 <a href="https://youtube.com" Style="color:red; text-decoration: none;"> [Visit YouTube] </a> &nbsp
 <a href="https://google.com" Style="color:red; text-decoration: none;"> [Visit Google] </a> &nbsp
 <a href="https://spotify.com" Style="color:red; text-decoration: none;"> [Visit Spotify] </a> &nbsp
@@ -27,7 +35,9 @@
         
  <img src="Media/Lovebirds.jpg" alt="A Picture Of My Amazing Lovebirds" class="responsive" width="600" height="400">  
         <p>a picture of my lovebirds</p>
-        
+
+        <div class="button" onclick="play('correct.mp3')">Truth</div>
+        <div class="button" onclick="play('wrong.mp3')">Wrong</div>
     </center>
     
 </body>
