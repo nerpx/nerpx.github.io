@@ -12,11 +12,23 @@
 <body>
 
     <script>
-function play(file) {
-  let audio = new Audio(file);
-  audio.play();
-}
-  </script>    
+  // Object to store preloaded audio
+  const audioCache = {};
+
+  // Function to play sounds
+  function play(filename) {
+    // If not already loaded, preload it
+    if (!audioCache[filename]) {
+      const audio = new Audio("/soundfx/" + filename); // adjust path to your folder
+      audio.load(); // preload it
+      audioCache[filename] = audio;
+    }
+
+    const sound = audioCache[filename];
+    sound.currentTime = 0; // rewind to start
+    sound.play();           // play instantly
+  }
+</script> 
     
      <h1> NerpX </h1>
     
