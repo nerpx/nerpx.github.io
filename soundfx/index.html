@@ -14,21 +14,36 @@
     <script>
   // Object to store preloaded audio
   const audioCache = {};
+  const audioFiles = ["wrong.mp3", "correct.mp3"]; // your actual files
 
-  // Preload all sounds immediately
-  const audioFiles = ["wrong.mp3","correct.mp3"];
+  // Preload all sounds
   audioFiles.forEach(f => {
-    const audio = new Audio("/soundfx/" + f); // adjust path to your folder
+    const audio = new Audio("/soundfx/" + f); // make sure this matches your folder
     audio.load();
     audioCache[f] = audio;
   });
 
+  // Unlock iOS audio on first tap/click
+  let audioUnlocked = false;
+  function unlockAudio() {
+    if (!audioUnlocked) {
+      const context = new (window.AudioContext || window.webkitAudioContext)();
+      const buffer = context.createBuffer(1, 1, 22050);
+      const source = context.createBufferSource();
+      source.buffer = buffer;
+      source.connect(context.destination);
+      source.start(0);
+      audioUnlocked = true;
+    }
+  }
+  document.body.addEventListener("click", unlockAudio, { once: true });
+
   // Universal play function
   function play(filename) {
     const sound = audioCache[filename];
-    if (!sound) return;       // safety check
-    sound.currentTime = 0;    // rewind to start
-    sound.play();             // play instantly
+    if (!sound) return;
+    sound.currentTime = 0;
+    sound.play();
   }
 </script>
     
