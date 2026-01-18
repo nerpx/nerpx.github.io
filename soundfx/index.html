@@ -12,13 +12,25 @@
 <body>
 
     <script>
-const audioFiles = ["click.mp3","beep.mp3","explosion.mp3"];
-audioFiles.forEach(f => {
-  const audio = new Audio("/soundfx/" + f);
-  audio.load();
-  audioCache[f] = audio;
-});
-</script> 
+  // Object to store preloaded audio
+  const audioCache = {};
+
+  // Preload all sounds immediately
+  const audioFiles = ["click.mp3","beep.mp3","explosion.mp3"];
+  audioFiles.forEach(f => {
+    const audio = new Audio("/soundfx/" + f); // adjust path to your folder
+    audio.load();
+    audioCache[f] = audio;
+  });
+
+  // Universal play function
+  function play(filename) {
+    const sound = audioCache[filename];
+    if (!sound) return;       // safety check
+    sound.currentTime = 0;    // rewind to start
+    sound.play();             // play instantly
+  }
+</script>
     
      <h1> NerpX </h1>
     
