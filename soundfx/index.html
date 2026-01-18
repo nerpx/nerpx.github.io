@@ -12,46 +12,47 @@
 <body>
 
     <script>
-  // Object to store preloaded audio
-  const audioCache = {};
-  const audioFiles = ["wrong.mp3", "correct.mp3"]; // your actual files
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const audioFiles = ["wrong.mp3", "correct.mp3"];
+  const audioBuffers = {};
 
   // Preload all sounds
-  audioFiles.forEach(f => {
-    const audio = new Audio("/soundfx/" + f); // make sure this matches your folder
-    audio.load();
-    audioCache[f] = audio;
+  audioFiles.forEach(file => {
+    fetch("/soundfx/" + file)
+      .then(response => response.arrayBuffer())
+      .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+      .then(decodedBuffer => {
+        audioBuffers[file] = decodedBuffer;
+      });
   });
 
-  // Unlock iOS audio on first tap/click
-  let audioUnlocked = false;
+  // Play function — creates a new source each time
+  function play(filename) {
+    const buffer = audioBuffers[filename];
+    if (!buffer) return; // not loaded yet
+
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioContext.destination);
+    source.start(0); // play immediately
+  }
+
+  // Unlock iOS audio on first tap
+  let unlocked = false;
   function unlockAudio() {
-    if (!audioUnlocked) {
-      const context = new (window.AudioContext || window.webkitAudioContext)();
-      const buffer = context.createBuffer(1, 1, 22050);
-      const source = context.createBufferSource();
-      source.buffer = buffer;
-      source.connect(context.destination);
-      source.start(0);
-      audioUnlocked = true;
+    if (!unlocked) {
+      audioContext.resume();
+      unlocked = true;
     }
   }
   document.body.addEventListener("click", unlockAudio, { once: true });
-
-  // Universal play function
-  function play(filename) {
-    const sound = audioCache[filename];
-    if (!sound) return;
-    sound.currentTime = 0;
-    sound.play();
-  }
 </script>
     
      <h1> NerpX </h1>
     
     <center> 
-<div class="button" onclick="play('correct.mp3')"> <p>Truth</p> </div>
-<div class="button" onclick="play('wrong.mp3')"> <p>False</p> </div>
+<div class="button" onclick="play('correct.mp3')" style="background-color:green; min-height: 200px; min-width: 200px;"> <p style="color:black;">Truth</p> </div>
+<div class="button" onclick="play('wrong.mp3')" style="background-color:Red; min-height: 200px; min-width: 200px;"> <p style="color:black;">False</p> </div>
 <!-- <div class="button" onclick="play('example.mp3')"> <p>Example</p> </div> -->
 
    
