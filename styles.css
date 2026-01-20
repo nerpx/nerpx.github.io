@@ -33,7 +33,7 @@ p {
 }
 
 .center-page > * {
-  display: inline-block;     
-  margin: 10px 0;             
+  display: block;     
+  height: auto;             
 }
    
