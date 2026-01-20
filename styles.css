@@ -17,3 +17,7 @@ p {
   height: auto;
 }
 
+.button-container {
+  display: flex;
+}
+
