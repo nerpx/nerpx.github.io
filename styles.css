@@ -20,6 +20,19 @@ p {
 .button-container {
   display: flex;
   align-items: center;
-    border-radius: 50%;
+  gap: 20px;
 }
 
+.button {
+  border-radius: 50%;
+}
+
+.center-page {
+  text-align: center;     
+}
+
+.center-page > * {
+  display: inline-block;     
+  margin: 10px 0;             
+}
+   
