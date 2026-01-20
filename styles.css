@@ -25,6 +25,7 @@ p {
 
 .button {
   border-radius: 50%;
+      text-align: center; 
 }
 
 .center-page {
