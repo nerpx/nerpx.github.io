@@ -19,5 +19,7 @@ p {
 
 .button-container {
   display: flex;
+  align-items: center;
+    border-radius: 50%;
 }
 
