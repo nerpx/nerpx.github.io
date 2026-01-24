@@ -36,4 +36,6 @@ p {
   margin-right: auto;
 }
 
-   
+   a {
+  white-space: nowrap;
+}
