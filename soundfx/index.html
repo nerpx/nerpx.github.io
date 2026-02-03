@@ -13,7 +13,7 @@
 
     <script>
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  const audioFiles = ["wrong.mp3", "correct.mp3", "hehe.mp3", "applepay.mp3", "indian.mp3", "trombone.mp3", "dexter.mp3", "cricket.mp3", "bttb.mp3", "fart.mp3", "oiia.mp3", "explode.mp3", "punch.mp3", "intensefart.mp3", "shot.mp3", "dryfart.mp3", "slap.mp3", "smack.mp3"];
+  const audioFiles = ["wrong.mp3", "correct.mp3", "hehe.mp3", "applepay.mp3", "indian.mp3", "trombone.mp3", "dexter.mp3", "cricket.mp3", "bttb.mp3", "fart.mp3", "oiia.mp3", "explode.mp3", "punch.mp3", "intensefart.mp3", "shot.mp3", "dryfart.mp3", "slap.mp3", "smack.mp3", "Dah.mp3", "Ow.mp3", "Ow 2.mp3", "hoo.mp3", "shamone1.mp3", "shamone2.mp3"];
   const audioBuffers = {};
 
   // Preload all sounds
@@ -86,6 +86,18 @@
 <div class="button" onclick="play('punch.mp3')" style="background-color:lime; min-height: 100px; min-width: 100px;"> <p style="color:black;">punch</p> </div>
 <div class="button" onclick="play('slap.mp3')" style="background-color:darkred; min-height: 100px; min-width: 100px;"> <p style="color:black;">slap</p> </div>
 <div class="button" onclick="play('smack.mp3')" style="background-color:Red; min-height: 100px; min-width: 100px;"> <p style="color:black;">pan smack</p> </div>
+</div>
+
+        <div class="button-container"">       
+<div class="button" onclick="play('Ow.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">Ow 1</p> </div>
+<div class="button" onclick="play('Ow 2.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">wah  </p> </div>
+<div class="button" onclick="play('Dah.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">Dah</p> </div>
+</div>
+
+ <div class="button-container"">       
+<div class="button" onclick="play('hoo.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">Hoo</p> </div>
+<div class="button" onclick="play('shamone1.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">Shamone 1</p> </div>
+<div class="button" onclick="play('shamone2.mp3')" style="background-color: #531CC9; min-height: 100px; min-width: 100px;"> <p style="color:black;">Shamone 2</p> </div>
 </div>
    
     </center>
