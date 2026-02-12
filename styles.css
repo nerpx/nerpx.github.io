@@ -41,7 +41,9 @@ p {
 
 .button {
   border-radius: 50%;
-      text-align: center; 
+      text-align: center;
+     min-height: 100px;
+    min-width: 100px;
 }
 
 .center-img {
