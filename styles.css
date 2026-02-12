@@ -53,10 +53,26 @@ p {
    a {
   white-space: nowrap;
   text-decoration: none;
-   color:darkred;
+   color:red;
 }
 
 marquee {
     color: red;
     
+}
+
+.hlink {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: darkred;
+}
+
+main {
+    justify-content: center;
+     text-align: center;
+}
+
+.header {
+    display: flex;
+     margin-bottom: auto;
 }
