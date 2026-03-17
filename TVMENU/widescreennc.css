@@ -1,0 +1,114 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    background-color: rgb(1, 1, 44);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+
+.second {
+    background-color: rgb(0, 0, 57);
+    width: 97%;
+    height: 97%;
+    margin: auto;
+    
+    display: flex;            /* make it a flex container */
+    flex-direction: column;   /* stack children top → bottom */
+}
+ 
+.bar {
+    height: 15%;
+    background-color: rgb(6, 0, 80);
+    margin-top: auto;         /* pushes it to the bottom */
+    display: flex;
+    width: 97vw;
+}
+
+.content {
+    height: 85%;
+    width: 55vw;
+    margin: auto;
+    background-color: rgb(6, 0, 80);
+    margin-top: auto;         /* pushes it to the bottom */
+    display: flex;            /* make it a flex container */
+    flex-direction: column;   /* stack children top → bottom */
+    box-shadow: 0px 0px 50px 10px;
+}
+
+.out {
+    border: 8px solid rgb(25, 25, 120);          /* top-left highlight */
+    border-right-color: rgb(0, 0, 69);          /* bottom-right dark edge */
+    border-bottom-color: rgb(0, 0, 40); 
+    box-sizing: border-box;           /* ensure borders don’t break size */
+}
+
+.display {
+background-color: black;
+    height: 95%;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    
+}
+
+iframe{
+ border:none;
+}
+
+
+.clock{
+    font-family: oswald;
+     font-size: 4vw;
+     line-height: 1;
+      color: inherit;
+      margin: inherit;
+      text-shadow: inherit;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-left: auto;
+    color: rgb(219, 219, 255);
+    margin-right: 0.5em;
+    text-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+h1{ 
+  color: inherit;
+  margin: inherit;
+  text-shadow: inherit;
+}
+
+.clocktext{
+    margin-top: 0.25vw;
+}
+
+.logo {
+    margin-top: 0.15vw;
+    margin-left: 0.25vw;
+    height: 110%;
+    width: 12vw;
+}
+
+.fsb {
+  position: fixed;   /* pinned to the viewport */
+  top: 10px;         /* distance from top of screen */
+  right: 10px;       /* distance from right of screen */
+  z-index: 1000;     /* above everything else */
+}
+
+
