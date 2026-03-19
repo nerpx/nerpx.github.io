@@ -67,6 +67,7 @@ marquee {
     margin-top: auto;
     margin-bottom: auto;
     color: darkred;
+    margin-left: 2vw;
 }
 
 main {
@@ -77,4 +78,28 @@ main {
 .header {
     display: flex;
      margin-bottom: auto;
+}
+
+.redlinks{
+    color:orangered
+}
+
+footer {
+    height: 7.5vw;
+    color: red;
+}
+
+footer p{
+    color: inherit;
+     text-align: center;
+     font-size: large;
+     padding: 0;
+     margin: 0;
+     margin-top: 1vw;
+}
+
+.linkhead {
+    margin: 1em;
+    font-style: italic;
+    font-weight: bold;
 }
