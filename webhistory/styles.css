@@ -1,0 +1,144 @@
+/* Maximus Christopher 4th Period */
+
+body{
+    margin:0;
+    padding: 0;
+    background-color: #003430;
+    width: 100%;
+    height: 100vh;
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header{
+    width: 75%;
+    height: 10%;
+    margin: 0px;
+    padding: 0px;
+      background-color: #007975;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 10px 10px  #001d26;
+}
+
+.titlebar{
+    display: flex;
+      background-color: #009A96;
+}
+
+.title{
+    color: #001d25;
+    margin: 0;
+    padding: 0;
+    padding-left: 1%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+}
+
+header p {
+    margin-top: auto;
+    margin-bottom: 0.5%;
+    padding-left: 1%;
+}
+
+.sidebar h3{
+    margin-top: 2x;
+}
+
+.nav{
+    width: 98%;
+    height: 30%;
+    padding-left: 1%;
+    padding-right: 1%;
+    gap: 1em;
+}
+
+.nav a{
+    color: #002622;
+    margin-left: 1em;
+}
+
+main{
+    width: 75%;
+    height: 85%;
+    margin: 0px;
+    padding: 0px;
+      background-color: #009A96;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 1%;
+        display: flex;
+        align-items: center;
+        box-shadow: 10px 10px  #001d26;
+}
+
+.sidebar{
+    background-color: #007c78;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-right: auto;
+      height: 100%;
+      width: 25%;
+      text-align: center;
+}
+
+.sidebar p{
+    padding: 3%;
+}
+
+.sidebar h4 ,p ,h2 ,h3 ,h1 {
+    color: #001d26;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hr {
+        border-color: #002622;
+    }
+
+.content{ 
+    width: 75%;
+    height: 100%;
+    ul li {
+        margin-bottom: 0.5em;
+    }
+
+    *{
+        margin-left: 1%;
+    }
+}
+
+.jstext{
+    padding: 1%;
+}
+
+.tblp {
+    width: 90%;
+    margin-top: 10% ;
+}
+
+.timeline{
+    width: 55%;
+    padding: 1%;
+    padding-right: 0%;
+}
+
+.flex{
+    display: flex;
+}
+
+pre {
+  white-space: pre !important; 
+  font-family: monospace !important; 
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+}
+
