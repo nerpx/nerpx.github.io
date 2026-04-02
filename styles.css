@@ -1,5 +1,9 @@
+/* NERPX CSS V2.0 */
+
 body {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+    padding: 0;
+    margin: 0;
 }
 
 h1 {
@@ -50,6 +54,7 @@ p {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0px 0px 20px rgb(118, 0, 0);
 }
 
    a {
@@ -58,26 +63,36 @@ p {
    color:red;
 }
 
-marquee {
-    color: red;
-    
-}
-
 .hlink {
     margin-top: auto;
-    margin-bottom: auto;
-    color: darkred;
+    margin-bottom: 0.5%;
+    color: red;
     margin-left: 2vw;
+    text-shadow: 0px 0px 5px rgb(255, 0, 0);
+
 }
 
 main {
     justify-content: center;
      text-align: center;
+     background-color: rgb(0, 0, 0);
+     margin-left: auto;
+     margin-right: auto;
 }
 
 .header {
     display: flex;
      margin-bottom: auto;
+     background-color: rgba(45, 0, 0, 0.781);
+     padding: 0;
+     box-shadow: 0px 1px 50px red
+}
+
+header h1 {
+    text-shadow: 0px 0px 5px rgb(255, 0, 0);
+    margin-left: 1%;
+    margin-bottom: 0.25%;
+    margin-top: 0.25%
 }
 
 .redlinks{
@@ -102,4 +117,13 @@ footer p{
     margin: 1em;
     font-style: italic;
     font-weight: bold;
+    padding-top: 0.5em;
+}
+
+.main {
+    background-color: rgb(19, 0, 0);
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 92vh;
 }
