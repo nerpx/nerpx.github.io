@@ -127,3 +127,8 @@ footer p{
     margin-right: auto;
     height: 92vh;
 }
+
+number-input {
+    margin-left: auto;
+    margin-right: auto;
+}
