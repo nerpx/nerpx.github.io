@@ -1,14 +1,31 @@
-function pictureNumber() { 
-  const number = document.getElementById("number").value; 
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (number == "1") { 
-    document.getElementById("pic").src = "Media/Som.avif"; 
-  } else if (number == "2") { 
-    document.getElementById("pic").src = "Media/Tin.avif"; 
-  } else if (number == "3") { 
-    document.getElementById("pic").src = "Media/Pfn.avif"; 
-  }
-   else { 
-    document.getElementById("pic").src = "Media/Lovebirds.avif"; 
-  } 
+  const input = document.getElementById("number");
+
+  input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      pictureNumber();
+    }
+  });
+
+});
+
+function pictureNumber() {
+  const number = document.getElementById("number").value;
+  const pic = document.getElementById("pic");
+
+  const imagePath = "Media/image" + number + ".avif";
+
+  pic.onload = function () {
+    console.log("Picture " + number + " Displayed");
+  };
+
+  pic.onerror = function () {
+    console.log("Failed to load Picture " + number);
+    pic.onerror = null;
+    pic.onload = null;
+    pic.src = "Media/image4.avif";
+  };
+
+  pic.src = imagePath;
 }
