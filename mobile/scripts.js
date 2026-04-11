@@ -14,7 +14,7 @@ function pictureNumber() {
   const number = document.getElementById("number").value;
   const pic = document.getElementById("pic");
 
-  const imagePath = "../media/image" + number + ".avif";
+  const imagePath = "../Media/image" + number + ".avif";
 
   pic.onload = function () {
     console.log("Picture " + number + " Displayed");
@@ -24,7 +24,7 @@ function pictureNumber() {
     console.log("Failed to load Picture " + number);
     pic.onerror = null;
     pic.onload = null;
-    pic.src = "../media/image4.avif";
+    pic.src = "../Media/image4.avif";
   };
 
   pic.src = imagePath;
