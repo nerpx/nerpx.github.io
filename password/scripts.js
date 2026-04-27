@@ -8,7 +8,7 @@ function textSubmit() {
       document.getElementById("button").disabled = true;
       document.getElementById("body").style.backgroundColor = "black";
       setTimeout(() => {
-        window.location.replace("https://www.example.com");
+        window.location.replace("https://nerpx.github.io");
       }, 2000);
 }  else {
       document.getElementById("un").value = "Access Denied";
