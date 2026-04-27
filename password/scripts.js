@@ -19,7 +19,7 @@ function textSubmit() {
       setTimeout(() => {
         document.getElementById("un").value = "";
         document.getElementById("pw").value = "";
-        document.getElementById("button").innerText = "Rettempt Entry";
+        document.getElementById("button").innerText = "Reattempt Entry";
         document.getElementById("button").disabled = false;
         document.getElementById("body").style.backgroundColor = "#008080";
       }, 2000);
