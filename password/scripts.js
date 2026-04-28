@@ -1,7 +1,12 @@
+let user1 = "admin";
+let pass1 = "nerpxinc";
+let user2 = "guest";
+let pass2 = "nerpxguest";
+
 function textSubmit() {
     let username = document.getElementById("un").value;
     let password = document.getElementById("pw").value;
-    if (username === "admin" && password === "nerpxinc") {
+    if (username === user1 && password === pass1) {
       document.getElementById("un").value = "Access Granted";
       document.getElementById("pw").value = "Access Granted";
       document.getElementById("button").innerText = "Access Granted";
