@@ -31,25 +31,29 @@ input{
     border: inset 2px #026767;
     padding-left: 0.25em;
 }
-
 button {
     font-family: "98", sans-serif;
     color: black;
 
     background-color: rgb(205, 205, 205);
+
+    border: 2px solid #000;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-right-color: #555;
+    border-bottom-color: #555;
+
     border-radius: 0;
 
     margin: 0;
     width: 15%;
-
-    box-shadow: outset -2px -2px 0 #fff, outset 2px 2px 0 #555;
 
     -webkit-appearance: none;
     appearance: none;
 
     cursor: pointer;
 }
-
+    
 button:active {
     background-color: rgb(158, 158, 158);
     box-shadow: 0;
