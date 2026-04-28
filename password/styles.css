@@ -52,7 +52,7 @@ button {
     border-radius: 0;
 
     margin: 0;
-    width: 15%;
+    width: 30%;
 
     display: inline-block;
 
@@ -81,11 +81,35 @@ textarea {
 }
 
 a {
-  color: black;
-  text-decoration: none;
+    padding: 0.25em;
+    color: rgb(0, 0, 110);
 }
 
 a, button {
   -webkit-tap-highlight-color: transparent;
 }
 
+.logon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: #189d9d;
+    padding: 1em;
+    border: 4px outset #056464;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+    font-weight: 500;
+}
+
+.forgot {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    background-color: #189d9d;
+    padding: 1em;
+    border: 4px outset #056464;
+}
