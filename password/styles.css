@@ -33,14 +33,21 @@ input{
 }
 
 button {
-    font-family: "98";
+    font-family: "98", sans-serif;
+    color: black;
+
     background-color: rgb(205, 205, 205);
     border-radius: 0;
+
     margin: 0;
     width: 15%;
-    box-shadow: 2px 2px #004e4e;
-    all: unset !important;
-    color: black !important;
+
+    box-shadow: outset -2px -2px 0 #fff, outset 2px 2px 0 #555;
+
+    -webkit-appearance: none;
+    appearance: none;
+
+    cursor: pointer;
 }
 
 button:active {
