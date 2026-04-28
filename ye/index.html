@@ -6,9 +6,11 @@
         </head>
     <body>
         <div class="body">
-            <script>
+            <script defer>
+                window.onload = function() {
                 const audio = new Audio('ye.mp3');
                 audio.play();
+                };
             </script>
             <style>
             * {
@@ -17,6 +19,7 @@
                 object-fit: fill;
                 width: 100%;
                 height: 100%;
+                background-color: black;
             }
             </style>
             <img src="ye.avif" class="ye">
