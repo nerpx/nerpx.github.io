@@ -8,35 +8,40 @@
     <div class="body">
 
         <script>
-            let locked = false;
+const audio = new Audio("ye.mp3");
+audio.preload = "auto";
 
-            async function goFullscreen() {
-                const el = document.documentElement;
+let used = false;
 
-                if (el.requestFullscreen) {
-                    await el.requestFullscreen();
-                } else if (el.webkitRequestFullscreen) {
-                    await el.webkitRequestFullscreen();
-                }
-            }
+async function start() {
+    if (used) return;
+    used = true;
 
-            function lockFullscreen() {
-                if (!locked) return;
-                goFullscreen();
-            }
+    // audio first (most reliable on iOS)
+    try {
+        audio.currentTime = 0;
+        await audio.play();
+    } catch (e) {}
 
-            window.addEventListener("keydown", async () => {
-                if (locked) return;
-                locked = true;
+    // fullscreen (best effort)
+    const el = document.documentElement;
 
-                const audio = new Audio("ye.mp3");
-                audio.play();
+    try {
+        if (el.requestFullscreen) {
+            await el.requestFullscreen();
+        } else if (el.webkitRequestFullscreen) {
+            el.webkitRequestFullscreen();
+        }
+    } catch (e) {}
+}
 
-                await goFullscreen();
+// KEYBOARD support (desktop)
+window.addEventListener("keydown", start, { once: true });
 
-                document.addEventListener("fullscreenchange", lockFullscreen);
-            });
-        </script>
+// TOUCH / CLICK support (mobile + desktop)
+window.addEventListener("touchstart", start, { once: true });
+window.addEventListener("click", start, { once: true });
+</script>
 
         <style>
         * {
