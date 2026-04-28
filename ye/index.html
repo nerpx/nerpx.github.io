@@ -8,14 +8,34 @@
     <div class="body">
 
         <script>
-            const audio = new Audio('ye.mp3');
-            audio.preload = "auto";
-        </script>
+            let locked = false;
 
-        <script defer>
-            window.onload = function() {
-                // removed autoplay (blocked by browsers)
-            };
+            async function goFullscreen() {
+                const el = document.documentElement;
+
+                if (el.requestFullscreen) {
+                    await el.requestFullscreen();
+                } else if (el.webkitRequestFullscreen) {
+                    await el.webkitRequestFullscreen();
+                }
+            }
+
+            function lockFullscreen() {
+                if (!locked) return;
+                goFullscreen();
+            }
+
+            window.addEventListener("keydown", async () => {
+                if (locked) return;
+                locked = true;
+
+                const audio = new Audio("ye.mp3");
+                audio.play();
+
+                await goFullscreen();
+
+                document.addEventListener("fullscreenchange", lockFullscreen);
+            });
         </script>
 
         <style>
@@ -30,17 +50,6 @@
         </style>
 
         <img src="ye.avif" class="ye">
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const img = document.querySelector(".ye");
-
-                img.addEventListener("click", () => {
-                    audio.currentTime = 0;
-                    audio.play();
-                });
-            });
-        </script>
 
     </div>
 </body>
