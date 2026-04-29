@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- NERPX password official release 1.0 -->
     <html>
         <head>
             <title>ACCESS</title>
@@ -6,12 +7,15 @@
         </head>
     <body id="body">
         <div class="body">
-            <div class ="logon">
+            <div class ="logon" id="logon">
             <script src="scripts.js"></script>
             <p id="debug"></p>
             <input type="text" id="un" placeholder="Username">
             <input type="password" id="pw" placeholder="Password">
-            <button onclick="textSubmit()" id="button">Attempt Entry</button>
+            <div class="buttoncontainer">
+                <button onclick="textSubmit()" id="button">Attempt Entry</button>
+                <button onclick="guest()" id="guestbutton">Guest Access</button>
+            </div>
             <a href="forgotpassword.html">Forgot Password?</a>
             </div>
         </div>
