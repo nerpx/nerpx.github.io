@@ -23,8 +23,8 @@ function guest() {
 }
 
 function textSubmit() {
-    let username = document.getElementById("un").value;
-    let password = document.getElementById("pw").value;
+    let username = document.getElementById("un").value.toLowerCase();
+    let password = document.getElementById("pw").value.toLowerCase();
     if (password === "password") {
         document.getElementById("un").value = "Nice try lol";
         document.getElementById("pw").setAttribute('type', 'text');
