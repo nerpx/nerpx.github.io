@@ -120,15 +120,26 @@ footer p{
     padding-top: 0.5em;
 }
 
-.main {
+@media (min-width: 768px) {
+  .main {
     background-color: rgb(19, 0, 0);
-    width: 60%;
+    width: 75vw;
     margin-left: auto;
     margin-right: auto;
     height: 92vh;
+}
+}
+
+@media (max-width: 768px) {
+  .main {
+    width: 100%;
+    background-color: rgb(19, 0, 0);
+    margin: 0 auto;
+  }
 }
 
 number-input {
     margin-left: auto;
     margin-right: auto;
 }
+
