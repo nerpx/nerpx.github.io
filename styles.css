@@ -6,7 +6,7 @@ body {
     margin: 0;
 }
 
-h1, h2 , h3 {
+h1, h2 ,h3 {
     color: red;
     margin: 0;
     padding: 0;
@@ -23,21 +23,20 @@ p {
   margin: 0 auto;
   box-shadow: 0px 0px 20px rgb(118, 0, 0);
 }
-  /* SoundFx Styling */
-        .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        text-align: center;
-        }
 
-        .button {
-        border-radius: 50%;
-            text-align: center;
-            min-height: 100px;
-            min-width: 100px;
-        }
-  /* End of SoundFx Styling */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+     text-align: center;
+}
+
+.button {
+  border-radius: 50%;
+      text-align: center;
+     min-height: 100px;
+    min-width: 100px;
+}
 
    a {
   white-space: nowrap;
@@ -51,6 +50,7 @@ p {
     color: red;
     margin-left: 2vw;
     text-shadow: 0px 0px 5px rgb(255, 0, 0);
+
 }
 
 main {
@@ -60,37 +60,22 @@ main {
      margin: 0 auto;
 }
 
-header {
+.header {
     display: flex;
      margin-bottom: auto;
      background-color: rgba(45, 0, 0, 0.781);
      padding: 0;
-     box-shadow: 0px 1px 50px red
+     box-shadow: 0px 1px 50px red;
 }
 
 header h1 {
     text-shadow: 0px 0px 5px rgb(255, 0, 0);
     margin-left: 1%;
-    margin-bottom: 0.25%;
-    margin-top: 0.25%
+    margin: 0.25% 0.50%;
 }
 
 .redlinks{
     color:orangered
-}
-
-footer {
-    height: 7.5vw;
-    color: red;
-}
-
-footer p{
-    color: inherit;
-     text-align: center;
-     font-size: large;
-     padding: 0;
-     margin: 0;
-     margin-top: 1vw;
 }
 
 .linkhead {
@@ -117,6 +102,6 @@ footer p{
   }
 }
 
-.number-input {
+number-input {
     margin: 0 auto;
 }
