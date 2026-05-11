@@ -120,3 +120,10 @@ footer p{
 .number-input {
     margin: 0 auto;
 }
+
+
+input,
+textarea,
+select {
+    font-size: 16px;
+}
