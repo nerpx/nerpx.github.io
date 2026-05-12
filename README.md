@@ -1,6 +1,7 @@
 # nerpx.github.io
 
 NERPX V2.0 RELEASE DATE 04/02/2026
+NERPX V2.7 RELEASE DATE 05/09/2026
 
 Old versions available at nerpx.github.io/legacy/
 V3.0 Is expected by June of 2026
