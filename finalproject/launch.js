@@ -1,5 +1,3 @@
-
-
 const vcrCode = `
                 <!-- VCR PLAY SCREEN-->
                 <div class="playscreen" id="vcr">
@@ -16,37 +14,40 @@ const vcrCode = `
 
 let actionallow = 0;
 
-//document.getElementById("body").innerHTML = orginHtml;
-
 const orginHtml = document.getElementById('body').innerHTML
 document.getElementById('body').innerHTML = vcrCode;
 
-const vcraudio = new Audio('hum.mp3');
-vcraudio.play();
 
-
-// resets timer before next one
-function clearTimer() {
-    clearTimeout(timerId);
+// -----------------------------
+// SAFE AUDIO PLAY (Safari fix)
+// -----------------------------
+function safePlay(audio) {
+    if (!audio) return;
+    const p = audio.play();
+    if (p && typeof p.catch === "function") {
+        p.catch(() => {});
+    }
 }
 
-// initialize boot sound for gbc function
+const vcraudio = new Audio('hum.mp3');
 const gbcboot = new Audio('gbcstart.mp3');
 
-// wait for vcr to be done
+safePlay(vcraudio);
 
+
+// wait for vcr to be done
 const timerId = setTimeout(() => { 
 
     toGbc();
 
     setTimeout(() => { 
-        gbcboot.play();
+        safePlay(gbcboot);
     }, 1200);
 
 }, 6000);
 
-// gbc boot and transfer function
 
+// gbc boot and transfer function
 function toGbc() {
 
     document.getElementById("body").innerHTML =
@@ -59,7 +60,6 @@ function toGbc() {
 
         actionallow++;
 
-        // load post launch script
         const script = document.createElement("script");
         script.src = "postlaunchscripts.js";
         document.body.appendChild(script);
@@ -67,30 +67,41 @@ function toGbc() {
     }, 3000);
 }
 
-// vcr stopwatch thingy 
 
+// -----------------------------
+// SAFARI-SAFE TIMER (FIXED)
+// -----------------------------
 let seconds = 0;
 const maxSeconds = 5;
-const timerElement = document.getElementById("timer");
 
-// Update every 1000ms (1 second)
-const interval = setInterval(() => {
+function startTimer() {
 
-    seconds++;
-    timerElement.innerHTML = seconds;
+    const el = document.getElementById("timer");
+    if (!el) return;
 
-    if (seconds >= maxSeconds) {
-        clearInterval(interval);
-    }
+    const interval = setInterval(() => {
 
-}, 1000);
+        seconds++;
+        const timerEl = document.getElementById("timer");
 
-console.log(orginHtml);
+        if (timerEl) {
+            timerEl.innerHTML = seconds;
+        }
+
+        if (seconds >= maxSeconds) {
+            clearInterval(interval);
+        }
+
+    }, 1000);
+}
+
+// delay timer start until DOM is stable (Safari fix)
+setTimeout(startTimer, 50);
+
 
 // -----------------------------
-// SAFE AUDIO UNLOCK (NO TIMING INTERFERENCE)
+// SAFE AUDIO UNLOCK (UNCHANGED)
 // -----------------------------
-
 (function () {
 
     let unlocked = false;
@@ -100,18 +111,13 @@ console.log(orginHtml);
         if (unlocked) return;
         unlocked = true;
 
-        // only unlock audio engine, DO NOT play anything
         try {
-
             const silent = new Audio();
             silent.play().catch(() => {});
-
-            console.log("Audio unlocked safely (no autoplay triggered)");
-
         } catch (e) {}
+
     }
 
-    // Safari requires gesture → this unlocks it properly
     document.addEventListener("click", unlockAudioOnly, { once: true });
     document.addEventListener("keydown", unlockAudioOnly, { once: true });
     document.addEventListener("touchstart", unlockAudioOnly, { once: true });
