@@ -1,68 +1,119 @@
-const state = {
-    launchComplete: false
-};
 
-// -----------------------------
-// ORIGINAL SCREEN BACKUP
-// -----------------------------
-const originalHtml = document.getElementById("body").innerHTML;
 
-// -----------------------------
-// BOOT AUDIO
-// -----------------------------
-const vcraudio = new Audio("hum.mp3");
-const gbcboot = new Audio("gbcstart.mp3");
+const vcrCode = `
+                <!-- VCR PLAY SCREEN-->
+                <div class="playscreen" id="vcr">
+                <div class="vcrtop">
+                    <h1 class="vcrplaytext">PLAY &#9654;</h1>
+                    <h1 class="vcrtime">--<span class= "blink">:</span>--</h1> 
+                    </div>
+                    <div class="vcrbtm">
+                    <h1 class="modeselect">SP</h1>
+                    <h1 class="vcrtime">0:00:0<span id="timer">0</span></h1>
+                </div>
+                <!-- end of vcr play screen-->      
+`;
 
-// -----------------------------
-// START SEQUENCE
-// -----------------------------
-async function launchSequence() {
+let actionallow = 0;
 
-    // VCR SCREEN
-    document.getElementById("body").innerHTML = `
-        <div class="playscreen" id="vcr">
-            <div class="vcrtop">
-                <h1 class="vcrplaytext">PLAY &#9654;</h1>
-                <h1 class="vcrtime">--<span class="blink">:</span>--</h1> 
-            </div>
-            <div class="vcrbtm">
-                <h1 class="modeselect">SP</h1>
-                <h1 class="vcrtime">0:00:00</h1>
-            </div>
-        </div>
-    `;
+//document.getElementById("body").innerHTML = orginHtml;
 
-    // play VCR sound (user gesture required or fallback below)
-    vcraudio.currentTime = 0;
-    vcraudio.play().catch(() => {});
+const orginHtml = document.getElementById('body').innerHTML
+document.getElementById('body').innerHTML = vcrCode;
 
-    // wait 6 seconds
-    await wait(6000);
+const vcraudio = new Audio('hum.mp3');
+vcraudio.play();
 
-    // GBC SCREEN
+
+// resets timer before next one
+function clearTimer() {
+    clearTimeout(timerId);
+}
+
+// initialize boot sound for gbc function
+const gbcboot = new Audio('gbcstart.mp3');
+
+// wait for vcr to be done
+
+const timerId = setTimeout(() => { 
+
+    toGbc();
+
+    setTimeout(() => { 
+        gbcboot.play();
+    }, 1200);
+
+}, 6000);
+
+// gbc boot and transfer function
+
+function toGbc() {
+
     document.getElementById("body").innerHTML =
-        '<div class="gbccontain"><img src="gbc.gif" class="gbc"></div>';
+        '<div class="gbccontain"> <img src="gbc.gif" class="gbc"> </div>';
 
-    await wait(1200);
+    setTimeout(() => { 
 
-    gbcboot.currentTime = 0;
-    gbcboot.play().catch(() => {});
+        document.getElementById('body').innerHTML = orginHtml;
+        document.getElementById("body").className = "body";
 
-    await wait(3000);
+        actionallow++;
 
-    // RESTORE ORIGINAL
-    document.getElementById("body").innerHTML = originalHtml;
-    document.getElementById("body").className = "body";
+        // load post launch script
+        const script = document.createElement("script");
+        script.src = "postlaunchscripts.js";
+        document.body.appendChild(script);
 
-    // SIGNAL DONE
-    state.launchComplete = true;
-    window.dispatchEvent(new Event("launchDone"));
+    }, 3000);
 }
 
-// helper
-function wait(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+// vcr stopwatch thingy 
 
-// start automatically
-launchSequence();
+let seconds = 0;
+const maxSeconds = 5;
+const timerElement = document.getElementById("timer");
+
+// Update every 1000ms (1 second)
+const interval = setInterval(() => {
+
+    seconds++;
+    timerElement.innerHTML = seconds;
+
+    if (seconds >= maxSeconds) {
+        clearInterval(interval);
+    }
+
+}, 1000);
+
+console.log(orginHtml);
+
+// -----------------------------
+// SAFE AUDIO UNLOCK (NO TIMING INTERFERENCE)
+// -----------------------------
+
+(function () {
+
+    let unlocked = false;
+
+    function unlockAudioOnly() {
+
+        if (unlocked) return;
+        unlocked = true;
+
+        // only unlock audio engine, DO NOT play anything
+        try {
+
+            const silent = new Audio();
+            silent.play().catch(() => {});
+
+            console.log("Audio unlocked safely (no autoplay triggered)");
+
+        } catch (e) {}
+    }
+
+    // Safari requires gesture → this unlocks it properly
+    document.addEventListener("click", unlockAudioOnly, { once: true });
+    document.addEventListener("keydown", unlockAudioOnly, { once: true });
+    document.addEventListener("touchstart", unlockAudioOnly, { once: true });
+
+})();
