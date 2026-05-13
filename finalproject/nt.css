@@ -1,0 +1,78 @@
+/* A Nerpx 2026 production */
+
+@font-face {
+  font-family: "98";
+  src: url("98.ttf") format("TrueType");
+  font-weight: normal;
+  font-style: normal;
+}
+
+input{
+    width: 300px;
+    font-size: 16px;
+    border: 0;
+    margin-bottom: 0.5em;
+    border: inset 2.5px #026767;
+    padding-left: 0.25em;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    font-family: "98", sans-serif;
+    color: black;
+
+    background-color: rgb(205, 205, 205);
+
+    border: 2px solid #000;
+
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-right-color: #555;
+    border-bottom-color: #555;
+
+    border-radius: 0;
+
+    margin: 0;
+    width: 30%;
+
+    display: inline-block;
+
+    cursor: pointer;
+
+    /* IMPORTANT: stops iOS “native button rendering layer” */
+    -webkit-border-fit: border !important;
+}
+
+button:active {
+    background-color: rgb(108, 108, 108);
+    box-shadow: 0;
+    border-bottom-color: #fff;
+    border-right-color: #fff;
+    border-left-color: #555;
+    border-top-color: #555;
+}
+
+input:focus {
+    outline: none;
+    border: solid rgb(0, 0, 0);
+}
+
+button,
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+a {
+    padding: 0.25em;
+    color: rgb(0, 0, 110);
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
