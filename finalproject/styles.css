@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    user-select: none;
 }
 
 p {
@@ -115,12 +116,14 @@ p {
     /* End Gbc Code */
 
     .nt {
+        user-select: none;
         height: 50vh;
          margin: 0;
         padding: 0;
     }
 
     .ntcontain {
+        user-select: none;
         margin: 0;
         padding: 0;
         height: 100vh;

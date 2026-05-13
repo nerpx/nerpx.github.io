@@ -31,17 +31,10 @@ window.__postLaunchLoaded = false;
 if (getCookie("bootDone") === "1") {
     console.log("boot sequence has already happened before, skipping by default");
 
-    if (!window.__postLaunchLoaded) {
-        window.__postLaunchLoaded = true;
-
-        const script = document.createElement("script");
-        script.src = "postlaunchscripts.js";
-        document.body.appendChild(script);
-    }
-
 } else {
     BOOTSEQUENCE(); 
 }
+
 
 function BOOTSEQUENCE() {
 
@@ -102,10 +95,8 @@ function BOOTSEQUENCE() {
                 // 🔥 ALSO PROTECTED HERE
                 if (!window.__postLaunchLoaded) {
                     window.__postLaunchLoaded = true;
-
-                    const script = document.createElement("script");
-                    script.src = "postlaunchscripts.js";
-                    document.body.appendChild(script);
+    document.cookie = "bootDone=1; path=/; max-age=31536000";
+                    STARTDOS();
                 }
 
             }, 3000);
