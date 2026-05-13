@@ -6,6 +6,14 @@ function watchintro() {
     document.cookie = "bootDone=0; path=/; max-age=31536000";
 }
 
+function skipintro2() {
+    document.cookie = "postLaunchDone=1; path=/; max-age=31536000";
+}
+
+function watchintro2() {
+    document.cookie = "postLaunchDone=0; path=/; max-age=31536000";
+}
+
 function getCookie(name) {
     const cookies = document.cookie.split("; ");
 
@@ -17,16 +25,23 @@ function getCookie(name) {
     return null;
 }
 
+// 🔥 ADDED GUARD (prevents double loading postlaunch script)
+window.__postLaunchLoaded = false;
+
 if (getCookie("bootDone") === "1") {
-    console.log("boot sequence has already happened before, skipping by default")
-     const script = document.createElement("script");
-                script.src = "postlaunchscripts.js";
-                document.body.appendChild(script);
+    console.log("boot sequence has already happened before, skipping by default");
+
+    if (!window.__postLaunchLoaded) {
+        window.__postLaunchLoaded = true;
+
+        const script = document.createElement("script");
+        script.src = "postlaunchscripts.js";
+        document.body.appendChild(script);
+    }
 
 } else {
-        BOOTSEQUENCE(); 
+    BOOTSEQUENCE(); 
 }
-
 
 function BOOTSEQUENCE() {
 
@@ -49,10 +64,6 @@ function BOOTSEQUENCE() {
         const orginHtml = document.getElementById('body').innerHTML;
         document.getElementById('body').innerHTML = vcrCode;
 
-
-        // -----------------------------
-        // SAFE AUDIO PLAY (Safari fix)
-        // -----------------------------
         function safePlay(audio) {
             if (!audio) return;
             const p = audio.play();
@@ -66,8 +77,6 @@ function BOOTSEQUENCE() {
 
         safePlay(vcraudio);
 
-
-        // wait for vcr to be done
         const timerId = setTimeout(() => { 
 
             toGbc();
@@ -78,12 +87,10 @@ function BOOTSEQUENCE() {
 
         }, 5800);
 
-
-        // gbc boot and transfer function
         function toGbc() {
 
             document.getElementById("body").innerHTML =
-            '<div class="gbccontain"> <img id="gbcGif" src="gbc.gif?'+Date.now()+'" class="gbc"> </div>'
+            '<div class="gbccontain"> <img id="gbcGif" src="gbc.gif?'+Date.now()+'" class="gbc"> </div>';
 
             setTimeout(() => { 
 
@@ -92,17 +99,18 @@ function BOOTSEQUENCE() {
 
                 actionallow++;
 
-                const script = document.createElement("script");
-                script.src = "postlaunchscripts.js";
-                document.body.appendChild(script);
+                // 🔥 ALSO PROTECTED HERE
+                if (!window.__postLaunchLoaded) {
+                    window.__postLaunchLoaded = true;
+
+                    const script = document.createElement("script");
+                    script.src = "postlaunchscripts.js";
+                    document.body.appendChild(script);
+                }
 
             }, 3000);
         }
 
-
-        // -----------------------------
-        // SAFARI-SAFE TIMER (FIXED)
-        // -----------------------------
         let seconds = 0;
         const maxSeconds = 5;
 
@@ -127,13 +135,8 @@ function BOOTSEQUENCE() {
             }, 1000);
         }
 
-        // delay timer start until DOM is stable (Safari fix)
         setTimeout(startTimer, 50);
 
-
-        // -----------------------------
-        // SAFE AUDIO UNLOCK (UNCHANGED)
-        // -----------------------------
         (function () {
 
             let unlocked = false;
@@ -155,4 +158,4 @@ function BOOTSEQUENCE() {
             document.addEventListener("touchstart", unlockAudioOnly, { once: true });
 
         })();
-    }
+}

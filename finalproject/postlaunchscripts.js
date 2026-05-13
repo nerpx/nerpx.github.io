@@ -1,3 +1,31 @@
+window.skipintro2 = function () {
+    document.cookie = "postLaunchDone=1; path=/; max-age=31536000";
+};
+
+window.watchintro2 = function () {
+    document.cookie = "postLaunchDone=0; path=/; max-age=31536000";
+};
+
+function getCookie(name) {
+    const cookies = document.cookie ? document.cookie.split("; ") : [];
+
+    for (let i = 0; i < cookies.length; i++) {
+        const parts = cookies[i].split("=");
+        const key = parts[0];
+        const value = parts.slice(1).join("="); // safer for encoded values
+
+        if (key === name) return value;
+    }
+
+    return null;
+}
+
+if (getCookie("postLaunchDone") === "0") {
+    boot2();
+}
+
+function boot2(){
+
 const afterLoad = document.getElementById('body').innerHTML
 
 const ntstart = new Audio("nt4.mp3");
@@ -26,3 +54,4 @@ setTimeout(() => {
     }
 
 }, 6000);
+}

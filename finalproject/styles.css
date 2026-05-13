@@ -129,14 +129,4 @@ p {
         text-align: center;
     }
     
-    .logon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    background-color: #189d9d;
-    padding: 1em;
-    border: 4px outset #056464;
-    box-shadow: 5px 5px 0 #033838b5;
-}
-
+ 
