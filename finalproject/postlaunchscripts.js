@@ -1,3 +1,4 @@
+console.log('top of plscript was accessed')
 window.skipintro2 = function () {
     document.cookie = "postLaunchDone=1; path=/; max-age=31536000";
 };
@@ -20,9 +21,7 @@ function getCookie(name) {
     return null;
 }
 
-if (getCookie("postLaunchDone") === "0") {
-    boot2();
-}
+boot2();
 
 function boot2(){
 
@@ -52,4 +51,5 @@ setTimeout(() => {
     }
 
 }, 6000);
+console.log('boot2 has been run')
 }

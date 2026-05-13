@@ -1,3 +1,5 @@
+   document.cookie = "dosStart=0; path=/;";
+
 function skipintronexttime() {
     document.cookie = "bootDone=1; path=/; max-age=31536000";
 }
@@ -24,6 +26,10 @@ function getCookie(name) {
 
     return null;
 }
+
+if (getCookie("dosStart") === "1") {
+    console.log("start cookie set ok");
+} 
 
 // 🔥 ADDED GUARD (prevents double loading postlaunch script)
 window.__postLaunchLoaded = false;
@@ -95,9 +101,12 @@ function BOOTSEQUENCE() {
                 // 🔥 ALSO PROTECTED HERE
                 if (!window.__postLaunchLoaded) {
                     window.__postLaunchLoaded = true;
-    document.cookie = "bootDone=1; path=/; max-age=31536000";
-                    STARTDOS();
+                    document.cookie = "dosStart=1; path=/; "
                 }
+                if (getCookie("dosStart") === "1") {
+    console.log("start cookie set ok");
+    DOSKEYCHECK();
+} 
 
             }, 3000);
         }

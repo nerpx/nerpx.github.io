@@ -9,14 +9,15 @@ function getCookie(name) {
     return null;
 }
 
-if (getCookie("bootDone") === "0") {
+
+function DOSKEYCHECK() {
+if (getCookie("dosStart") === "0") {
     console.log("halting dos");
 
 } else {
-    STARTDOS(); 
-}
+    
 
-function STARTDOS(){
+
 const link = document.createElement("link");
 link.rel = "stylesheet";
 link.href = "dos.css";
@@ -68,53 +69,46 @@ Press <span class="highlight">F1</span> to continue, <span class="highlight">DEL
 `;
 
 document.getElementById("body").innerHTML = DOSCONTENT;
+console.log('dosdisplayed');
 
+const dosboot = new Audio('Beep.mp3');
 
+setTimeout(() => {
 
-const dosboot = new Audio('Beep.mp3')
-document.addEventListener("DOMContentLoaded", () => {
   function animateCountUp(target, duration, elementId) {
     let start = null;
     const element = document.getElementById(elementId);
     if (!element) return;
 
-    // Convert target directly to string to get length without commas
     const finalLength = target.toString().length;
 
     function step(timestamp) {
       if (!timestamp) timestamp = performance.now();
       if (!start) start = timestamp;
-      
+
       const elapsed = timestamp - start;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       const currentValue = Math.floor(progress * target);
-      // Convert to standard string with no punctuation
       const formattedValue = currentValue.toString();
-      
+
       const missingSpaces = finalLength - formattedValue.length;
       const leadingSpaces = '&nbsp;'.repeat(Math.max(0, missingSpaces));
-      
+
       element.innerHTML = leadingSpaces + formattedValue;
-      
+
       if (progress < 1) {
         window.requestAnimationFrame(step);
       }
     }
-    
+
     window.requestAnimationFrame(step);
   }
 
-  // Target: 3932216, Duration: 5000ms (5 seconds)
   animateCountUp(32768, 500, "counter");
-});
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Wait for the HTML document to be fully parsed and loaded
-document.addEventListener('DOMContentLoaded', async () => {
-  
-  // Define the items inside the listener so the DOM is ready
   const items = [
     document.getElementById('biosload1'),
     document.getElementById('biosload2'),
@@ -123,22 +117,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('biosload5')
   ];
 
-  // Loop through and reveal each item sequentially
-  for (const item of items) {
-    if (item) {
-      item.style.visibility = 'visible';
-      await sleep(600); 
-    } else {
-      console.warn("An element was not found in the DOM.");
+  let i = 0;
+
+  async function run() {
+    for (const item of items) {
+      if (item) {
+        item.style.visibility = 'visible';
+        await sleep(600);
+        console.log('loadingbioslists');
+      } else {
+        console.warn("An element was not found in the DOM.");
+      }
     }
+
+    console.log("Loading sequence finished!");
+    handleSequenceFinished();
   }
 
-  // DETECTION POINT: The sequential loop has completely finished running
-  console.log("Loading sequence finished!");
-  handleSequenceFinished();
-});
+  run();
 
-// Add whatever actions you want to execute when everything is done
+}, 0);
+
 function handleSequenceFinished() {
   const cursor = document.getElementById('cursor');
   if (cursor) {
@@ -149,9 +148,10 @@ function handleSequenceFinished() {
 
 setTimeout(() => { 
   document.getElementById("stylesheet").remove();
-                const script = document.createElement('script');
-script.src = 'postlaunchscripts.js';
-document.head.appendChild(script);
-            }, 7000);
-
- }           
+  const script = document.createElement('script');
+  script.src = 'postlaunchscripts.js';
+  console.log('passoff functionran');
+  document.head.appendChild(script);
+}, 7000);
+}
+}
