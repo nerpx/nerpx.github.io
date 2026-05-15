@@ -36,7 +36,6 @@ window.__postLaunchLoaded = false;
 
 if (getCookie("bootDone") === "1") {
     console.log("boot sequence has already happened before, skipping by default");
-
 } else {
     BOOTSEQUENCE(); 
 }

@@ -15,8 +15,6 @@ if (getCookie("dosStart") === "0") {
     console.log("halting dos");
 
 } else {
-    
-
 
 const link = document.createElement("link");
 link.rel = "stylesheet";
