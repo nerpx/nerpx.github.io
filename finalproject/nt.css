@@ -1,3 +1,5 @@
+/*   .guesswho.hidden { display: none !important; } */
+.hidden { display: none; }
 /* A Nerpx 2026 production */
 
 
@@ -155,11 +157,239 @@ a, button {
 
 .clock{
     color: black;
-    width: 10vw;
+    width: fit-content;
+    min-width: fit-content;
     height: 4vh;
     margin: auto;
     margin-right: 1vw;
     background-color: rgb(205, 205, 205);
-    border: 2px inset 
+    border: 2px inset ;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.clocktext {
+    font-family: "98", sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 0.3em;
+    padding-right: 0.3em;
 }
  
+.windowsmenu {
+    position: fixed;
+    display: flex;
+    bottom: 5.5vh;
+    left: 0;
+    width: 225px;
+    height: 50vh;
+    
+    background-color: rgb(205, 205, 205);
+
+    border: 2px solid #000;
+    z-index: 1000; 
+
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-right-color: #555;
+}
+
+
+    .nt {
+        user-select: none;
+        height: 50vh;
+         margin: 0;
+        padding: 0;
+    }
+
+    .ntcontain {
+        user-select: none;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100%;
+        align-content: center;
+        text-align: center;
+    }
+    
+    .menugradient {
+        background: linear-gradient(to top, #0800ff, #000);
+        width: 16%;
+        height: 99%;
+        margin: auto 0.5%;
+        display: flex;
+        flex-direction: column;
+    }
+ 
+    .startbuttoncontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 81%;
+        height: 99%;
+        margin: auto 0.5%;
+    background-color: rgb(196, 196, 196);
+    }
+
+    .windowsmenuitem {
+        font-family: "98", sans-serif;
+        color: black;
+       background-color: rgb(196, 196, 196);
+        text-align: left;
+        width: 90%;
+        height: 14.25%;
+        align-items: center;
+        display: flex;
+    }
+
+    .windowsmenuitem:hover {
+        font-family: "98", sans-serif;
+        color: white;
+        background-color: #0000b4;
+        text-align: left;
+        width: 92%;
+        height: 14%;
+        margin: 0.25%
+    }
+
+    .last {
+        border-top: 2px solid #f3f3f3;
+    }
+
+    .shutdownlogo {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ntlogo {
+        margin: 0;
+        padding: 0;
+        font-size: 30px;
+        margin-bottom: 0.25em;
+        color: white;
+        font-family: "98", sans-serif;
+        font-weight: bold;
+        writing-mode: sideways-lr
+    }
+
+    .ntlogo2 {
+        margin: 0;
+        padding: 0;
+        font-size: 25px;
+        margin-top: 0.25em;
+        font-weight: 100;
+        color: #dadada;
+        font-family: microsoft sans serif, sans-serif;
+        writing-mode: sideways-lr;
+        margin-top: auto;
+        margin-left: auto;
+    }
+
+
+    .hidden { display: none; }
+
+    .foldercontainer {
+        flex-direction: column;
+        display: flex;
+        height: fit-content;
+        width: 50px;
+        padding: 0.25em;
+    }
+
+    .foldericon {
+        height: 45px;
+        width: 45px;
+        margin: 0;
+        margin: 0 auto;
+    }
+
+    .foldertext {
+        font-family: "98", sans-serif;
+        color: #FFF;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .foldericon:hover {
+        src: url("folderselected.png");
+        height: 45px;
+        width: 45px;
+        margin: 0;
+        margin: 0 auto;
+    }
+
+    .guesswho {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 500px;
+        background-color: rgb(211, 211, 211);
+        border: 2px outset ;
+    }
+
+    .topbar {
+        display: flex;
+        width: 99%;
+        margin: 2px auto;
+        height: 25px;
+        margin-bottom: auto;
+        background-color: #000080;
+    }
+
+    .topbartext {
+        color: white !important;
+        font-family: "98", sans-serif;
+        margin: 0;
+        margin-left: 0.25em;
+        font-size: 20px;
+    }
+
+    .topbar button {
+        display: flex;
+        width: 20px;
+        margin: auto 0;
+        margin-right: 3px;
+        height: 20px;
+        background-color: #dbdbdb;
+        color: black;
+        font-size: 25px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+       .topbar p {
+        color: black;
+        stroke-width: 1px;
+        stroke: black;
+        font-weight: 500;
+    }
+
+    .minimize,.maximize {
+        margin: 0;
+        padding: 0;
+    }
+
+    .windowbuttonscontainer {
+        display: flex;
+        width: fit-content;
+        height: 100%;
+        margin-left: auto;
+    }
+
+
+    .ghwcontent {
+      background-color: white;
+      width: 98%;
+      height: 90%;
+      border: 4px inset;
+      margin: auto;
+    }

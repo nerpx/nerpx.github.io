@@ -150,6 +150,7 @@ setTimeout(() => {
   script.src = 'postlaunchscripts.js';
   console.log('passoff functionran');
   document.head.appendChild(script);
+    document.cookie = "bootDone=1; path=/; max-age=31536000";
 }, 7000);
 }
 }

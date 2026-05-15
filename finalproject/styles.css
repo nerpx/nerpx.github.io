@@ -114,22 +114,3 @@ p {
     }
 
     /* End Gbc Code */
-
-    .nt {
-        user-select: none;
-        height: 50vh;
-         margin: 0;
-        padding: 0;
-    }
-
-    .ntcontain {
-        user-select: none;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        width: 100%;
-        align-content: center;
-        text-align: center;
-    }
-    
- 
