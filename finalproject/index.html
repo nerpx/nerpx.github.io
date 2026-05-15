@@ -13,7 +13,7 @@
         <script src="os.js" defer></script>
         <div class="body" id="body">
 <div class="nthomepage">
-    <div class="mainboxnt">
+    <div class="mainboxnt" id="mainboxnt">
 
         <div class="foldercontainer">
             <img src="folder.png" class="foldericon"
@@ -23,7 +23,7 @@
             <p class="foldertext">Guess Who?</p>
         </div>
 
-        <div class="foldercontainer">
+        <div class="foldercontainer" onclick="cna()">
             <img src="folder.png" class="foldericon"
                  onmouseenter="this.src='folderselected.png'" 
      onmouseleave="this.src='folder.png'" >
@@ -32,13 +32,16 @@
 
         <div class="guesswho hidden" id="guesswho">
             <div class="topbar">
+                <p class="topbartext">Guess Who?</p>
                 <div class="windowbuttonscontainer">
                 <button class="minimize"><p>&minus;</p></button>
-                <button class="maximize"><p>[]</p></button>
+                <button class="maximize"><p>o</p></button>
              <button class="close" onclick="closeWindow()"><p>&times;</p></button>
              </div>
             </div>
-            
+                <div class="ghwcontent">
+                    <iframe src="guesswho.html" class="ghwiframe"></iframe>
+                </div>
             </div>
 
             <div class="windowsmenu hidden" id="windowsmenu">
@@ -53,6 +56,15 @@
                     <div class="windowsmenuitem last" onclick="shutdown()"><img src="shutdownlogo.png" class="shutdownlogo">Sh<u>u</u>t Down...</div>
                 </div>
             </div>
+    </div>
+
+    <div class="error hidden" id="error">
+         <div class="errorbar"><p class="t1">Caine.ai coreaiprocess</p><button class="errorclose" onclick="closeError()"><p>&times;</p></button></div>
+         <div class="errorcontent">
+                 <img src="crash.png" class="errorimage">
+                 <p class="errortext">FATAL EXCEPTION OCCURED<br>Out of memory, terminating core ai proccesses <b>ERROR: 0XCEE</b></p>
+                </div>
+                    <button class="errorbutton" onclick="closeError()">OK</button>
     </div>
  
             <div class="startbar" onclick="startbutton()">

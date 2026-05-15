@@ -49,3 +49,37 @@ function guessWho() {
 function closeWindow() {
     guessWho();
 }
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+function cna() {
+     setInterval(function() { cnaError(); }, 5000);
+    console.log('CAINE.AI PROCESS INITIIALIZING...');
+}
+
+function cnaError() {
+    console.error('CAINE.AI PROCESS ERROR');
+    const errorElement = document.querySelector('.error');
+    errorElement.classList.remove('hidden');
+}
+
+function closeError() {
+    document.getElementById('body').classList.add('errorflash');
+    document.getElementById('mainboxnt').classList.add('errorflash');
+    setInterval(function() {crash()}, 5000);
+}
+
+function crash() {
+        document.getElementById('body').classList.remove('errorflash');
+    document.getElementById('mainboxnt').classList.remove('errorflash');
+    document.getElementById('body').innerHTML = '';
+    document.getElementById('body').style.backgroundColor = "#0000A8";
+}

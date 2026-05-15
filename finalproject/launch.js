@@ -158,3 +158,10 @@ function BOOTSEQUENCE() {
 
         })();
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "f") {
+    console.log("fullscreen toggle requested via f key");
+   toggleFullscreen();
+  }
+});

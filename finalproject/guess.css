@@ -1,0 +1,19 @@
+body {
+    background-color: #00c080;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: "vcr";
+    text-shadow: 3px 0px black;
+    margin: 0;
+}
+
+.hints {
+    display: flex;
+}
+
+.tung {
+    margin-left: auto;
+}
