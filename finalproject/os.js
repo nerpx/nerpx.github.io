@@ -46,7 +46,10 @@ function shutdown() {
         console.log('shutdown initiated');
         document.cookie = "bootDone=0; path=/; max-age=31536000";
         document.cookie = "dosStart=1; path=/; max-age=31536000";
-                document.getElementById("body").innerHTML = '';
+                document.getElementById("body").innerHTML = `
+                <div class="ntcontain">
+    <img src="nt4.0.png" class="nt" id="nt">
+</div>     `;
         document.getElementById("body").style.backgroundColor = "#008080";
     setInterval(function() {
           location.reload();
