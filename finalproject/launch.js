@@ -1,4 +1,5 @@
-   document.cookie = "dosStart=0; path=/;";
+const SKIP_INTRO = false; // <- flip this when testing
+ document.cookie = "dosStart=0; path=/;";
 
 function skipintronexttime() {
     document.cookie = "bootDone=1; path=/; max-age=31536000";
@@ -34,10 +35,21 @@ if (getCookie("dosStart") === "1") {
 // 🔥 ADDED GUARD (prevents double loading postlaunch script)
 window.__postLaunchLoaded = false;
 
-if (getCookie("bootDone") === "1") {
-    console.log("boot sequence has already happened before, skipping by default");
+const bootDone = getCookie("bootDone") === "1";
+
+if (SKIP_INTRO || bootDone) {
+    console.log("Skipping boot sequence");
+
+    // still safely initialize everything that intro normally enables
+    window.__postLaunchLoaded = true;
+    document.cookie = "dosStart=1; path=/;";
+
+    if (typeof DOSKEYCHECK === "function") {
+        DOSKEYCHECK();
+    }
+
 } else {
-    BOOTSEQUENCE(); 
+    BOOTSEQUENCE();
 }
 
 

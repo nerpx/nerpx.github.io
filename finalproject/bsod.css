@@ -1,0 +1,66 @@
+body {
+    background-color: #0000A8;
+    margin: 0;
+}
+
+*   {
+        font-family: 'ibm', monospace;
+} 
+
+
+@font-face {
+  font-family: "ibm";
+  src: url("PxPlus_IBM_VGA_8x16.ttf") format("truetype");
+}
+
+.body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.windows {
+    font-size: 2em;
+    margin: 0;
+    margin: 0 auto;
+    margin-top: auto;
+    color: #0000A8;
+    padding: 0 0.5em;
+    background-color: #868686;
+    width: fit-content;
+    height: fit-content;
+}
+
+.perror {
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    white-space: pre;
+    margin-bottom: auto;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+}
+
+.blink {
+    display: inline;
+    margin: 0;
+    animation: blinker 2s step-end infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

@@ -1,3 +1,17 @@
+const bluescreen = `<div class="container">
+            <p class="windows">Windows</p>
+            <p class="perror">An error has occured. To continue:
+
+Press Enter to return to Windows, or 
+
+Press CTRL+ALT+DEL to restart your computer. If you do this,
+you will lose any unsaved information in all open applications.
+
+Error: 0E : 016F : B8FC41N3
+</p><p class="perror"> Press any key to continue <span class="blink">_</span></p>
+            </div>`;
+
+
 
 const logoff = new Audio('logoff.mp3');
 
@@ -78,8 +92,9 @@ function closeError() {
 }
 
 function crash() {
+    document.getElementById("nt").href = "bsod.css";
         document.getElementById('body').classList.remove('errorflash');
     document.getElementById('mainboxnt').classList.remove('errorflash');
-    document.getElementById('body').innerHTML = '';
+    document.getElementById('body').innerHTML = bluescreen;
     document.getElementById('body').style.backgroundColor = "#0000A8";
 }
