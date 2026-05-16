@@ -11,7 +11,7 @@ Error: 0E : 016F : B8FC41N3
 </p><p class="perror"> Press any key to continue <span class="blink">_</span></p>
             </div>`;
 
-
+const errornoise = new Audio('error.mp3');
 
 const logoff = new Audio('logoff.mp3');
 
@@ -45,6 +45,7 @@ function shutdown() {
             logoff.play();
         console.log('shutdown initiated');
         document.cookie = "bootDone=0; path=/; max-age=31536000";
+        document.cookie = "dosStart=1; path=/; max-age=31536000";
                 document.getElementById("body").innerHTML = '';
         document.getElementById("body").style.backgroundColor = "#008080";
     setInterval(function() {
@@ -52,6 +53,11 @@ function shutdown() {
     }, 9000);
 }
 
+function postCrashReboot() {
+            document.cookie = "bootDone=0; path=/; max-age=31536000";
+        document.cookie = "dosStart=1; path=/; max-age=31536000";
+         location.reload();
+}
     
 function guessWho() {
     console.log('guesswho function called');
@@ -75,12 +81,21 @@ function toggleFullscreen() {
 }
 
 function cna() {
-     setInterval(function() { cnaError(); }, 5000);
-    console.log('CAINE.AI PROCESS INITIIALIZING...');
+    console.log('CAINE.AI PROCESS INITIALIZING...');
+
+    const interval = setInterval(function () {
+        cnaError();
+    }, 5000);
+
+    setTimeout(function () {
+        clearInterval(interval);
+        console.log("CNA stopped");
+    }, 5000);
 }
 
 function cnaError() {
     console.error('CAINE.AI PROCESS ERROR');
+    errornoise.play();
     const errorElement = document.querySelector('.error');
     errorElement.classList.remove('hidden');
 }
@@ -97,4 +112,7 @@ function crash() {
     document.getElementById('mainboxnt').classList.remove('errorflash');
     document.getElementById('body').innerHTML = bluescreen;
     document.getElementById('body').style.backgroundColor = "#0000A8";
+    setInterval(function() {
+          postCrashReboot();
+    }, 9000);
 }
