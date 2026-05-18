@@ -333,7 +333,28 @@ a, button {
         transform: translate(-50%, -50%);
         width: 700px;
         height: 500px;
-        background-color: rgb(211, 211, 211);
+        background-color: rgb(196, 196, 196);
+        border: 2px solid #000;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        border-right-color: #555;
+        border: 2px outset ;
+    }
+
+        .guesswhofullscreen {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(196, 196, 196);
+        border: 2px solid #000;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        border-right-color: #555;
         border: 2px outset ;
     }
 
@@ -380,6 +401,12 @@ a, button {
         padding: 0;
     }
 
+    .maximize p {
+        margin: 0;
+        padding: 0;
+        font-size: 45px;
+    }
+
     .windowbuttonscontainer {
         display: flex;
         width: fit-content;
@@ -392,8 +419,15 @@ a, button {
       background-color: white;
       width: 98%;
       height: 90%;
-      border: 4px inset;
       margin: auto;
+      display: flex;
+    }
+    
+    .ghwiframe {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        margin: auto;
     }
 
     .error {
@@ -490,4 +524,42 @@ a, button {
   50% {
     background-color: red;
   }
+}
+
+.windowsopen {
+    margin: auto 0;
+    padding: 0;
+    height: 80%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+                background-color: rgb(196, 196, 196);
+        border: 2px solid #000;
+        border-top-color: #fff;
+        border-left-color: #fff;
+        border-right-color: #555;
+}
+
+.windowsopen:active {
+        border: 2px solid #000;
+        border-bottom-color: #fff;
+        border-right-color: #fff;
+        border-left-color: #555;
+}
+
+.breaker {
+    margin: 0.25em;
+    border: 2px solid #000;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    border-right-color: #555;
+}
+
+.windowsopenp {
+    font-size: fit-content;
+    padding: 0;
+    font-family: "98", sans-serif;
+    color: black;
+    margin: auto;
 }

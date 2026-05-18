@@ -34,8 +34,8 @@
             <div class="topbar">
                 <p class="topbartext">Guess Who?</p>
                 <div class="windowbuttonscontainer">
-                <button class="minimize"><p>&minus;</p></button>
-                <button class="maximize"><p>o</p></button>
+                <button class="minimize" onclick="guessWhoHide();"><p>&minus;</p></button>
+                <button class="maximize" onclick="guessWhoFullScreen();"><p>&#x25AB;</p></button>
              <button class="close" onclick="closeWindow()"><p>&times;</p></button>
              </div>
             </div>
@@ -49,10 +49,10 @@
                 <div class="startbuttoncontainer">
                     <div class="windowsmenuitem"><u>P</u>rograms</div>
                     <div class="windowsmenuitem"><u>D</u>ocuments</div>
-                    <div class="windowsmenuitem"><u>S</u>ettings</div>
+                    <div class="windowsmenuitem" onclick="cookiereset();"><u>S</u>ettings</div>
                     <div class="windowsmenuitem"><u>F</u>ind</div>
                     <div class="windowsmenuitem"><u>H</u>elp</div>
-                    <div class="windowsmenuitem"><u>R</u>un....</div>
+                    <div class="windowsmenuitem" onclick="refresh();"><u>R</u>un....</div>
                     <div class="windowsmenuitem last" onclick="shutdown()"><img src="shutdownlogo.png" class="shutdownlogo">Sh<u>u</u>t Down...</div>
                 </div>
             </div>
@@ -67,17 +67,24 @@
                     <button class="errorbutton" onclick="closeError()">OK</button>
     </div>
  
-            <div class="startbar" onclick="startbutton()">
-        <div class="startbutton" role="button" tabindex="0">
+            <div class="startbar">
+        <div class="startbutton" role="button" tabindex="0"  onclick="startbutton()" >
                 <img src="logo.png" class="startimage">
     </div>
+    <div class="breaker"></div>
+    <div class="hidden" id="guesswhohw">
+            <div class="windowsopen" onclick="guessWhoButtonClick()"><p class="windowsopenp">Guess Who?</p></div>
+        </div>
     <div class="clock">
       <p class="clocktext" id="clock"></p>      
         </div>
-
     </div>
     
 </div>
+
+</body>
+
+</html>
 
 <!--             <h1 class="ntdebugh1"> debug panel </h1>
             <button onclick="skipintronexttime()">skip intro next time</button>

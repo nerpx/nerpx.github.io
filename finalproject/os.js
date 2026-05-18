@@ -7,7 +7,7 @@ Press Enter to return to Windows, or
 Press CTRL+ALT+DEL to restart your computer. If you do this,
 you will lose any unsaved information in all open applications.
 
-Error: 0E : 016F : B8FC41N3
+Error: 4B : 316F : B8FC41N3
 </p><p class="perror"> Press any key to continue <span class="blink">_</span></p>
             </div>`;
 
@@ -118,4 +118,36 @@ function crash() {
     setInterval(function() {
           postCrashReboot();
     }, 9000);
+}
+
+// SETTINGS BUTTON
+function cookiereset() {
+    document.cookie = "bootDone=0; path=/; max-age=31536000";
+    document.cookie = "dosStart=0; path=/; max-age=31536000";
+}
+
+// RUN BUTTON
+function refresh() {
+    location.reload();
+}
+
+function guessWhoHide() {
+    console.log('guesswho window function called');
+    const guesswindowthing = document.getElementById('guesswhohw');
+    guesswindowthing.classList.toggle('hidden');
+    console.log('guesswho window showed');
+    closeWindow();
+}
+
+function guessWhoButtonClick() {
+    console.log('guesswho window function called');
+    const guesswindowthingshow = document.getElementById('guesswhohw');
+    guesswindowthingshow.classList.toggle('hidden');
+    console.log('guesswho window showed');
+    closeWindow();
+}
+
+function guessWhoFullScreen() {
+    const guesswindowthing = document.getElementById('guesswho');
+    guesswindowthing.classList.toggle('guesswhofullscreen');
 }
