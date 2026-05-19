@@ -576,7 +576,7 @@ a, button {
 }
 
 .run:hover img {
-    content: url('NT4/Selected/runs.PNG');
+    content: url('NT4/selected/runs.PNG');
 }
 
 .programs img {
@@ -584,7 +584,7 @@ a, button {
 }
 
 .programs:hover img {
-    content: url('NT4/Selected/programs.PNG');
+    content: url('NT4/selected/programs.PNG');
 }
 
 .settings img {
@@ -592,7 +592,7 @@ a, button {
 }
 
 .settings:hover img {
-    content: url('NT4/Selected/settings.PNG');
+    content: url('NT4/selected/settings.PNG');
 }
 
 .documents img {
@@ -600,7 +600,7 @@ a, button {
 }
 
 .documents:hover img {
-    content: url('NT4/Selected/documents.PNG');
+    content: url('NT4/selected/documents.PNG');
 }
 
 .find img {
@@ -608,7 +608,7 @@ a, button {
 }
 
 .find:hover img {
-    content: url('NT4/Selected/find.PNG');
+    content: url('NT4/selected/find.PNG');
 }
 
 .help img {
@@ -616,7 +616,7 @@ a, button {
 }
 
 .help:hover img {
-    content: url('NT4/Selected/help.PNG');
+    content: url('NT4/selected/help.PNG');
 }
 
 .run img {
@@ -624,5 +624,5 @@ a, button {
 }
 
 .run:hover img {
-    content: url('NT4/Selected/runs.PNG');
+    content: url('NT4/selected/runs.PNG');
 }
