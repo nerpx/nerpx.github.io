@@ -115,6 +115,12 @@ function crash() {
     document.getElementById('mainboxnt').classList.remove('errorflash');
     document.getElementById('body').innerHTML = bluescreen;
     document.getElementById('body').style.backgroundColor = "#0000A8";
+
+setInterval(function() {
+      document.addEventListener("keydown", (event) => {
+    postCrashReboot();
+});
+    }, 3000);
     setInterval(function() {
           postCrashReboot();
     }, 9000);
