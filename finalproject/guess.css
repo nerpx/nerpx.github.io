@@ -10,10 +10,17 @@ h1 {
     margin: 0;
 }
 
-.hints {
-    display: flex;
+h4 {
+    color: rgb(0, 53, 17);
+     margin: 0;
 }
 
-.tung {
+.hints {
+    display: flex;
+    background-color: #007d53;
+}
+
+.spongebob {
     margin-left: auto;
+    height: 300px;
 }
