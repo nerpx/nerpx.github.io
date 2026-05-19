@@ -253,7 +253,6 @@ a, button {
         text-align: left;
         width: 90%;
         height: 14%;
-        margin: 0.25%
     }
 
     .last {
@@ -581,11 +580,11 @@ a, button {
 }
 
 .programs img {
-    content: url('NT4/programs.png');
+    content: url('NT4/programs.PNG');
 }
 
 .programs:hover img {
-    content: url('NT4/Selected/programs.png');
+    content: url('NT4/Selected/programs.PNG');
 }
 
 .settings img {
@@ -597,11 +596,11 @@ a, button {
 }
 
 .documents img {
-    content: url('NT4/documents.png');
+    content: url('NT4/documents.PNG');
 }
 
 .documents:hover img {
-    content: url('NT4/Selected/documents.png');
+    content: url('NT4/Selected/documents.PNG');
 }
 
 .find img {
@@ -613,11 +612,11 @@ a, button {
 }
 
 .help img {
-    content: url('NT4/help.png');
+    content: url('NT4/help.PNG');
 }
 
 .help:hover img {
-    content: url('NT4/Selected/help.png');
+    content: url('NT4/Selected/help.PNG');
 }
 
 .run img {
