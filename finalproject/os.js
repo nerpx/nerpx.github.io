@@ -92,7 +92,7 @@ function cna() {
 
     setTimeout(function () {
         clearInterval(interval);
-        console.log("CNA stopped");
+        console.log("C&A stopped");
     }, 5000);
 }
 
