@@ -1,3 +1,10 @@
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key.toLowerCase() === 'b') {
+        event.preventDefault(); // Optional: prevents the default browser action (like opening bookmarks)
+        bsod();
+    }
+});
+
 const bluescreen = `<div class="container">
             <p class="windows">Windows</p>
             <p class="perror">An error has occured. To continue:
@@ -65,7 +72,7 @@ function shutdown() {
 </div>     `;
         document.getElementById("body").style.backgroundColor = "#008080";
     setInterval(function() {
-          location.reload();
+          window.location.assign("https://nerpx.github.io");
     }, 9000);
 }
 
@@ -176,6 +183,20 @@ function showCredits() {
         document.getElementById('body').classList.remove('errorflash');
     document.getElementById('mainboxnt').classList.remove('errorflash');
     document.getElementById('body').innerHTML = creditsscreen;
+    document.getElementById('body').style.backgroundColor = "#0000A8";
+
+setInterval(function() {
+      document.addEventListener("keydown", (event) => {
+    postCrashReboot();
+});
+    }, 3000);
+}
+
+function bsod() {
+    document.getElementById("nt").href = "bsod.css";
+        document.getElementById('body').classList.remove('errorflash');
+    document.getElementById('mainboxnt').classList.remove('errorflash');
+    document.getElementById('body').innerHTML = bluescreen;
     document.getElementById('body').style.backgroundColor = "#0000A8";
 
 setInterval(function() {

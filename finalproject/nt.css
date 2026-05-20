@@ -523,7 +523,7 @@ a, button {
     background-color: black;
   }
   50% {
-    background-color: red;
+    background-color: rgb(197, 0, 0);
   }
 }
 
@@ -626,3 +626,6 @@ a, button {
 .run:hover img {
     content: url('NT4/selected/runs.PNG');
 }
+
+/* @media screen and (min-width: 1920px) {} */
+
