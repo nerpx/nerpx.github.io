@@ -11,6 +11,19 @@ Error: 4B : 316F : B8FC41N3
 </p><p class="perror"> Press any key to continue <span class="blink">_</span></p>
             </div>`;
 
+const creditsscreen = `<div class="container">
+            <p class="windows">NerpX</p>
+            <p class="perror">No error has occured. To continue:
+
+Press Enter to return to Windows, or 
+
+Press M+4+X to restart your computer. If you do this,
+you will lose any unsaved information in all open applications.
+
+Error: DL : 1NF0 : T3CH
+</p><p class="perror"> Press any key to continue <span class="blink">_</span></p>
+            </div>`;
+
 const errornoise = new Audio('error.mp3');
 
 const logoff = new Audio('logoff.mp3');
@@ -156,4 +169,18 @@ function guessWhoButtonClick() {
 function guessWhoFullScreen() {
     const guesswindowthing = document.getElementById('guesswho');
     guesswindowthing.classList.toggle('guesswhofullscreen');
+}
+
+function showCredits() {
+    document.getElementById("nt").href = "bsod.css";
+        document.getElementById('body').classList.remove('errorflash');
+    document.getElementById('mainboxnt').classList.remove('errorflash');
+    document.getElementById('body').innerHTML = creditsscreen;
+    document.getElementById('body').style.backgroundColor = "#0000A8";
+
+setInterval(function() {
+      document.addEventListener("keydown", (event) => {
+    postCrashReboot();
+});
+    }, 3000);
 }
