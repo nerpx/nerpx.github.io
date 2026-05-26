@@ -2,12 +2,53 @@
 * {
     margin: 0;
     padding: 0;
+    color: white;
+    text-align: center;
 }
 
 
 body {
-    background-color: black;
+    background-color: rgb(26, 0, 0);
     padding: 0;
     margin: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    background-color: rgb(62, 0, 0);
+    color: white;
+    font-family: Times New Roman, serif;
+    box-shadow: 4px 4px 5px black;
+}
+
+.header h1 {
+    text-align: center;
+}
+
+.forbes {
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: auto;
+    margin-top: 2.5%;
+    box-shadow: 4px 4px 5px black;
+}
+
+@media (max-width: 768px) {
+    .forbes {
+        width: 90%;
+        height: auto;
+    }
 }
