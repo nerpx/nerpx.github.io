@@ -1,3 +1,4 @@
+input = 5;
 const x = new URLSearchParams(location.search).get("x");
 console.log("URL Parameter x:", x);
 
@@ -6,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function pictureNumber() {
-  const number = x;
+  let number = x;
   const pic = document.getElementById("pic");
 
   // Points to the Media folder at the website root
@@ -34,3 +35,29 @@ function pictureNumber() {
 
   pic.src = imagePath;
 }
+
+function newValue(){
+const url = new URL(window.location.href);
+
+// 2. Change your parameter
+url.searchParams.set('x', input);
+
+// 3. Force the browser to reload with the new URL
+window.location.href = url.href;
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowUp') {
+    input = parseInt(x || 0) + 1;
+    newValue();
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'ArrowDown') {
+    input = parseInt(x || 0) - 1;
+    newValue();
+  }
+});
+
+
