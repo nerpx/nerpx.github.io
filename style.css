@@ -15,6 +15,8 @@ body {
 
 
 h1, h2, h3, h4, h5, h6, p {
+    font-weight: 100;
+    letter-spacing: 0.01em;
     margin: 0;
     padding: 0;
     color: #ffffff;
@@ -43,6 +45,7 @@ header h1 {
     letter-spacing: -0.01em;
     margin: 0 auto;
     margin-left: 0.25em;
+    text-shadow: 0px 0px 5px #000000;
 }
 
 main {
@@ -73,13 +76,12 @@ main {
     box-shadow: 0px 5px 5px 0px #000000;
 }
 
-.sidebar h3 {
+.sidebar h3, .main h2{
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 200;
     text-align: center;
     letter-spacing: -0.02em;
     margin-top: 0.25em;
-    font-size: 1.2em;
     background: linear-gradient(
     0deg,
     #000000b4 45%,
@@ -98,4 +100,33 @@ main {
     margin: auto;
     width: 95%;
     height: 95%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+    0deg,
+    #0d0d0de8 45%,
+    #1b1b1bdf 100%
+    );
+    width: 90vw;
+    height: 98%;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0.5em;
+    border-radius: 5px;
+}
+
+.eli {
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px 5px #000000;
+}
+
+.elitext {
+    font-weight: 200;
+    text-align: center;
+    color: #ffffff;
+    padding: 0;
+    width: 95%;
 }
