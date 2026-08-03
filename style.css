@@ -13,7 +13,6 @@ body {
     letter-spacing: 0.01em;
 }
 
-
 h1, h2, h3, h4, h5, h6, p {
     font-weight: 100;
     letter-spacing: 0.01em;
@@ -23,43 +22,46 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 header {
+    display: flex;
     height: 2.5em;
     width: 99%;
     margin: 0 auto;
     margin-top: 0.25em;
     border-radius: 5px;
-    padding: 0;
     background: linear-gradient(
-    0deg,
-    #000000e8 45%,
-    #262626 30%,
-    #7a7a7ad4 100%
+        0deg,
+        #000000e8 45%,
+        #262626 30%,
+        #7a7a7ad4 100%
     );
-    box-shadow: 0px 5px 5px 0px #000000;
+    box-shadow: 0px 5px 5px #000;
+    align-items: center;
 }
 
 header h1 {
-    font-family: 'Helvetica Neue', sans-serif;
     font-weight: 300;
-    text-align: left;
-    letter-spacing: -0.01em;
-    margin: 0 auto;
     margin-left: 0.25em;
-    text-shadow: 0px 0px 5px #000000;
+    text-shadow: 0px 0px 5px #000;
+}
+
+header p {
+    margin-left: 1em;
 }
 
 main {
     display: flex;
     background: linear-gradient(
-    0deg,
-    #000000e8 45%,
-    #131313df 100%
+        0deg,
+        #000000e8 45%,
+        #131313df 100%
     );
     border-radius: 5px;
     margin: 1em auto;
     width: 99%;
     height: 90vh;
 }
+
+/* Sidebar */
 
 .sidebar {
     display: flex;
@@ -68,65 +70,185 @@ main {
     height: 98%;
     margin: auto 0.5em;
     background: linear-gradient(
-    0deg,
-    #0d0d0de8 45%,
-    #1b1b1bdf 100%
+        0deg,
+        #0d0d0de8 45%,
+        #1b1b1bdf 100%
     );
-    border-radius: 2.5px;
-    box-shadow: 0px 5px 5px 0px #000000;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px #000;
 }
 
-.sidebar h3, .main h2{
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: 200;
+.sidebar h3 {
     text-align: center;
-    letter-spacing: -0.02em;
-    margin-top: 0.25em;
+    font-weight: 200;
     background: linear-gradient(
-    0deg,
-    #000000b4 45%,
-    #262626 30%,
-    #7a7a7ad4 100%
+        0deg,
+        #000000b4 45%,
+        #262626 30%,
+        #7a7a7ad4 100%
     );
     width: 100%;
-    margin: 0 auto;
     border-radius: 5px;
 }
 
 .sidebar-content {
     text-align: center;
-    color: #ffffff;
     padding: 0;
     margin: auto;
     width: 95%;
     height: 95%;
 }
 
+.sidebar img {
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px #000;
+}
+
+/* Main content */
+
 .main {
     display: flex;
     flex-direction: column;
     background: linear-gradient(
-    0deg,
-    #0d0d0de8 45%,
-    #1b1b1bdf 100%
+        0deg,
+        #0d0d0de8 45%,
+        #1b1b1bdf 100%
     );
     width: 90vw;
     height: 98%;
-    align-items: center;
-    justify-content: center;
     margin: auto 0.5em;
     border-radius: 5px;
-}
-
-.eli {
-    border-radius: 5px;
-    box-shadow: 0px 5px 5px 5px #000000;
-}
-
-.elitext {
-    font-weight: 200;
     text-align: center;
-    color: #ffffff;
-    padding: 0;
-    width: 95%;
+    align-items: center;
+}
+
+.main h2 {
+    width: 100%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    padding: 0 0.5em;
+    font-weight: 200;
+    background: linear-gradient(
+        0deg,
+        #000000b4 45%,
+        #262626 30%,
+        #7a7a7ad4 100%
+    );
+    border-radius: 5px;
+}
+
+/* Main columns */
+
+.maincontain {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.mainleft {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 1%;
+    background: #0b0b0b;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+}
+
+.mainleft h3 {
+    width: 100%;
+    background: linear-gradient(
+        0deg,
+        #000000b4 45%,
+        #262626 30%,
+        #7a7a7ad4 100%
+    );
+    border-radius: 5px;
+}
+
+.mainright {
+    text-align: center;
+    display: flex;
+    width: 70%;
+    margin-left: 1%;
+}
+
+/* Links */
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a p {
+    margin-top: 0.5em;
+    font-weight: 200;
+}
+
+.main p {
+    margin-top: 0.25em;
+}
+
+/* Break spacing */
+
+.brdouble {
+    display: block;
+    margin-bottom: 2em;
+}
+
+.brhalf {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.br {
+    display: block;
+    margin-bottom: 1em;
+}
+
+
+/* Phones */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        width: 95vw;
+        margin: auto;
+    }
+
+    html {
+        scrollbar-width: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+        font-weight: 300;
+    }
+}
+
+@media (max-width: 320px) {
+
+}
+
+@media (min-width: 480px) and (max-width: 768px) {
+
 }
