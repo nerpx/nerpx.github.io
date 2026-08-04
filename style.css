@@ -128,7 +128,7 @@ main {
     align-items: center;
 }
 
-.main h2 {
+.main h2,h3,h4 {
     width: 100%;
     flex: 0 0 auto;
     box-sizing: border-box;
@@ -176,8 +176,16 @@ main {
 .mainright {
     text-align: center;
     display: flex;
+    flex-direction: column;
     width: 70%;
     margin-left: 1%;
+}
+
+.aboutp {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 300;
 }
 
 /* Links */
@@ -213,13 +221,59 @@ a p {
     margin-bottom: 1em;
 }
 
+button {
+    margin-top: 0.5em;
+    color: white;
+    border-radius: 5px;
+    width: 90%;
+    border: none;
+    background: linear-gradient(
+        0deg,
+        #000000b4 45%,
+        #262626 30%,
+        #7a7a7ad4 100%
+    );
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 0.01em;
+}
+
+button.active {
+    color: grey;
+    background: linear-gradient(
+        0deg,
+        #000000b4 45%,
+        #0d0d0d 30%,
+        #585858d4 100%
+    );
+}
+
+.newsbtn {
+    display: none;
+}
 
 /* Phones */
 
 @media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    main {
+        height: 100vh;
+    }
 
-    .sidebar {
+    .smallhide {
         display: none;
+    }
+
+    .sideadjust {
+        margin: 0;
+        text-align: center;
+        display: flex;
+        align-items: flex-start;
+        width: 70%;
+        margin-left: 1%;
     }
 
     .main {
@@ -247,6 +301,14 @@ a p {
 
     h1, h2, h3, h4, h5, h6, p {
         font-weight: 300;
+    }
+
+    .newsbtn {
+        display: initial;
+    }
+
+    .aboutp {
+        width: 90%;
     }
 }
 
