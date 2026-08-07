@@ -5,11 +5,15 @@ you ask??? and I respond "I dont know thats up for you to decide.." </p> <div cl
 <div class="br"></div> <p> -NerpX 2026 </p>
 <div class="br">`;
 
-const info = `<h3>Info</h3>
-<p>NerpX is <b>NOT</b> a multi owner buisness its all run and coded by me, I felt this was important due to the fact
-the name "NerpX" may sound like a big buisness.</p>
-<div class="halfbr"></div><p> My interest and learning of html began in april 2024, It wasnt untill near feburary 2025 that I began learning css and html <b>with serious intentions </b>
-<p> As said many times before practice makes perfect so now Im pretty good at html css AND js now </p>`
+const info = `<h3>Profile</h3>
+<img src="/images/ibm.jpeg"></img>
+<p><a href="https://github.com/nerpx" target="_blank" style="text-decoration: underline;">NerpX on Github</a></p>
+<p>I make websites and fix stuff.</p>
+<div class="br"></div>
+<h4>Links</h4>
+    <a href="https://github.com/nerpx" target="_blank"><p>My Github</p></a>
+    <a href="https://bsky.app/profile/nerpx.github.io" target="_blank"><p>My Bluesky</p></a>
+    <a href="https://josemi0-0.github.io" target="_blank"><p>Jose's Site</p></a>`
 
 // journal entries start
 
@@ -18,7 +22,7 @@ the name "NerpX" may sound like a big buisness.</p>
             title: "First Entry",
             date: "08/07/2026",
             content: `
-            <h3>First Entry</h3>
+            <h3 id="title"></h3>
             <p>I came up with the idea of a journal thing pretty recently and figured "why not start by explaining why?" Its honestly just as simple as; its cool to write about things i do!
             </p>
             `
@@ -28,7 +32,7 @@ the name "NerpX" may sound like a big buisness.</p>
             title: "Explaining development",
             date: "08/07/2026",
             content: `
-            <h3>First Entry</h3>
+            <h3 id="title"></h3>
             <p>Ok, So I think this website is pretty cool but im still figuring out things to do with it, Now not to say this website is "free" but hosting it doesnt cost anything. And if you ask me
             the price of the headache it takes to make this is enough already. I want this website to look professional and well built before <u> widely </u> releasing it to the public and advertizing it.
             theres nothing that special or crazy about this website for the mass majority of people to visit it but its enough to show on social media and to friends. As Im writing this paragraph im in Beta 1.0
@@ -37,6 +41,16 @@ the name "NerpX" may sound like a big buisness.</p>
             Im ok with the changes so far and think soon this will be worthy of leaving the main dev faze to enter the basic maintenence faze. Y-know like the part where all that really gets changed around is the content
             the reason im in beta right now is because im happy with the design and feel theres not much more changes neccessarry to be made.
             </p>
+            `
+        },
+
+        {
+            title: "Beta 2.0",
+            date: "08/07/2026",
+            content: `
+            <h3 id="title"></h3>
+            <p>With the new addition of Beta 2.0 I am closing in on my goal for how this site will be and how its going to be presented, and honestly its looking pretty good. My sorta "eta" for when this site will be out of beta is probably 2 versions away, meaning beta 5.0 is
+            likely to be the final release</p>
             `
         }
     ];
@@ -63,9 +77,14 @@ the name "NerpX" may sound like a big buisness.</p>
     `;
 
     function openJournal(index) {
-        document.getElementById("journalContent").innerHTML =
-        journalEntries[index].content;
-    }
+    const entry = journalEntries[index];
+
+    document.getElementById("journalContent").innerHTML =
+        entry.content.replace(
+            '<h3 id="title"></h3>',
+            `<h3 id="title">${entry.title}</h3>`
+        );
+}
 
 // end journal script
 
@@ -91,14 +110,17 @@ buttons.forEach(button => {
         // Change content
         if (activeButton === "about") {
             mainright.innerHTML = about;
+            document.getElementById('mainright').classList = "mainright";
         }
 
         if (activeButton === "info") {
             mainright.innerHTML = info;
+            document.getElementById('mainright').classList = "mainright";
         }
 
         if (activeButton === "subpages") {
             mainright.innerHTML = subpages;
+            document.getElementById('mainright').classList = "mainright";
         }
 
         if (activeButton === "news") {
@@ -108,11 +130,27 @@ buttons.forEach(button => {
 
         if (activeButton === "main") {
             mainright.innerHTML = main;
+            document.getElementById('mainright').classList = "mainright";
         }
 
         if (activeButton === "journal") {
             mainright.innerHTML = journal;
+            document.getElementById('mainright').classList = "mainright";
         }
     });
 });
 
+function checkNewsVisibility() {
+    const active = document.querySelector(".toggle.active");
+
+    if (window.innerWidth <= 480 && active?.id === "news") {
+        mainright.innerHTML = main;
+        mainright.className = "mainright";
+
+        buttons.forEach(btn => btn.classList.remove("active"));
+        document.getElementById("main").classList.add("active");
+    }
+}
+
+window.addEventListener("resize", checkNewsVisibility);
+checkNewsVisibility();
