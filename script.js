@@ -140,10 +140,19 @@ buttons.forEach(button => {
     });
 });
 
+let previousWidth = window.innerWidth;
+
 function checkNewsVisibility() {
+    const currentWidth = window.innerWidth;
+
+    // Only run if the width actually changed
+    if (currentWidth === previousWidth) return;
+
+    previousWidth = currentWidth;
+
     const active = document.querySelector(".toggle.active");
 
-    if (window.innerWidth <= 480 && active?.id === "news") {
+    if (currentWidth <= 480 && active?.id === "news") {
         mainright.innerHTML = main;
         mainright.className = "mainright";
 
