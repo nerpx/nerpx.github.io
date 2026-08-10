@@ -3,7 +3,8 @@ const about = `<h3>About</h3>
 consideration... Ill probably post random stuff here, why did this highly moronic paragraph need its own page
 you ask??? and I respond "I dont know thats up for you to decide.." </p> <div class="br"></div> <p>Anyways, Buy some SpaceX IPA!!!</p>
 <div class="br"></div> <p> -NerpX 2026 </p>
-<div class="br">`;
+<div class="br">
+<p>Version: Public Release 1.0</p>`;
 
 const info = `<h3>Profile</h3>
 <img src="/images/ibm.jpeg"></img>
@@ -13,7 +14,32 @@ const info = `<h3>Profile</h3>
 <h4>Links</h4>
     <a href="https://github.com/nerpx" target="_blank"><p>My Github</p></a>
     <a href="https://bsky.app/profile/nerpx.github.io" target="_blank"><p>My Bluesky</p></a>
-    <a href="https://josemi0-0.github.io" target="_blank"><p>Jose's Site</p></a>`
+    <a href="https://josemi0-0.github.io" target="_blank"><p>Jose's Site</p></a>`;
+
+const contact = `<h3>Contact</h3>
+<p>Problems? Just send a Email to the following email</p>
+<p>nerpx1@gmail.com</p>
+<p>The same email serves as the general purpose site email for inquiries, support, or suggestions.</p>`;
+
+const phrases = {
+    phrase1: "New and refined!",
+    phrase2: "Check out jose's site under Profile + More",
+    phrase3: "Fresh out the oven!",
+    phrase4: `Finally a "official" release!`,
+    phrase5: "V3.0!!!",
+    phrase6: "back to school...",
+    phrase7: `Better`,
+    phrase8: `Faster`,
+    phrase9: `Remade`,
+    phrase10: `Nice Design!!!`
+};
+
+let phrasenum = Math.floor(Math.random() * 10) + 1;
+
+let phrasefull = phrases["phrase" + phrasenum];
+
+document.getElementById("phrase").innerText = phrasefull;
+
 
 // journal entries start
 
@@ -51,6 +77,15 @@ const info = `<h3>Profile</h3>
             <h3 id="title"></h3>
             <p>With the new addition of Beta 2.0 I am closing in on my goal for how this site will be and how its going to be presented, and honestly its looking pretty good. My sorta "eta" for when this site will be out of beta is probably 2 versions away, meaning beta 5.0 is
             likely to be the final release</p>
+            `
+        },
+
+        {
+            title: "Questioning further development",
+            date: "08/09/2026",
+            content: `
+            <h3 id="title"></h3>
+            <p>Since ive released beta 2 ive been having trouble coming up with what will be included in the final release, I still feel as if this site is very bare and lacking in content so im not sure. maybe ill just release it from beta.</p>
             `
         }
     ];
@@ -107,7 +142,7 @@ buttons.forEach(button => {
         // Detect which button was clicked
         const activeButton = button.id;
 
-        // Change content
+        // If statements for the toggles
         if (activeButton === "about") {
             mainright.innerHTML = about;
             document.getElementById('mainright').classList = "mainright";
@@ -135,6 +170,11 @@ buttons.forEach(button => {
 
         if (activeButton === "journal") {
             mainright.innerHTML = journal;
+            document.getElementById('mainright').classList = "mainright";
+        }
+
+        if (activeButton === "contact") {
+            mainright.innerHTML = contact;
             document.getElementById('mainright').classList = "mainright";
         }
     });
