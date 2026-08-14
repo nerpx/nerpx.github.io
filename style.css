@@ -17,6 +17,53 @@ body {
     letter-spacing: 0.01em;
 }
 
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-Thin.otf") format("opentype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-RegularItalic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url("fonts/HelveticaNeue-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Use Helvetica Neue everywhere */
+body {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
 h1, h2, h3, h4, h5, h6, p {
     font-weight: 200;
     letter-spacing: 0.01em;
