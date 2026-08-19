@@ -313,6 +313,11 @@ button.active {
     display: none;
 }
 
+.main h2 p {
+    display: inline;
+}
+
+
 /* Phones */
 
 @media (max-width: 480px) {
@@ -348,18 +353,6 @@ button.active {
     .main {
         width: 95vw;
         margin: auto;
-    }
-
-    html {
-        scrollbar-width: none;
-    }
-
-    body {
-        -ms-overflow-style: none;
-    }
-
-    body::-webkit-scrollbar {
-        display: none;
     }
 
     body {

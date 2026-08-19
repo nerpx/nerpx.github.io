@@ -23,7 +23,7 @@ const contact = `<h3>Contact</h3>
 
 const phrases = {
     phrase1: "New and refined!",
-    phrase2: "Check out jose's site under Profile + More",
+    phrase2: "Check out jose's site!",
     phrase3: "Fresh out the oven!",
     phrase4: `Finally a "official" release!`,
     phrase5: "V3.0!!!",
