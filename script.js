@@ -4,7 +4,7 @@ consideration... Ill probably post random stuff here, why did this highly moroni
 you ask??? and I respond "I dont know thats up for you to decide.." </p> <div class="br"></div> <p>Anyways, Buy some SpaceX IPA!!!</p>
 <div class="br"></div> <p> -NerpX 2026 </p>
 <div class="br">
-<p>Version: Public Release 1.0</p>`;
+<p>Version: Public Release 1.1</p>`;
 
 const info = `<h3>Profile</h3>
 <img src="/images/ibm.jpeg"></img>
