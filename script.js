@@ -1,13 +1,27 @@
-const about = `<h3>About</h3>
-<p class="aboutp" > NerpX is a concept website made by a highschooler, Just like many things the purpose is up to
-consideration... Ill probably post random stuff here, why did this highly moronic paragraph need its own page
-you ask??? and I respond "I dont know thats up for you to decide.." </p> <div class="br"></div> <p>Anyways, Buy some SpaceX IPA!!!</p>
-<div class="br"></div> <p> -NerpX 2026 </p>
-<div class="br">
-<p>Version: Public Release 1.1</p>`;
+const about = `
+<h3>About</h3>
+<div class="brhalf"></div> 
+<p class="aboutp">"NerpX does not have a meaning, Its simply a name I thought was cool and made up as a 5 letter username."</p>
+<div class="brdouble"></div>
+<p> -NerpX 2026 </p>
+<div class="br"></div>
+<p>Version: Public Release 1.3</p>
+<div class="br"></div>
+<p>Random cats provided by thecatapi.com</p>`;
+
+const hints = `<h3>Hints</h3>
+<p>Dont like your current cat picture? Click it and get a new random cat!</p>
+<div class="br"></div>
+<p>Dont have enough room? Try clicking the "Welcome to NerpX!" banner to hide the sidebuttons.</p>
+<div class="br"></div>
+<p>If you would like to enter fullscreen mode, simply click the site header.</p>
+<div class="br"></div>
+<p>Any problems or suggestions? Please contact me at the email provided in the contact section.</p>
+<div class="br"></div>
+<p>Find extra projects of mine at my github under the profile tab.</p>`;
 
 const info = `<h3>Profile</h3>
-<img src="/images/ibm.jpeg"></img>
+<img src="/images/ibm.jpeg" alt="Profile Picture"></img>
 <p><a href="https://github.com/nerpx" target="_blank" style="text-decoration: underline;">NerpX on Github</a></p>
 <p>I make websites and fix stuff.</p>
 <div class="br"></div>
@@ -21,17 +35,18 @@ const contact = `<h3>Contact</h3>
 <p>nerpx1@gmail.com</p>
 <p>The same email serves as the general purpose site email for inquiries, support, or suggestions.</p>`;
 
+
 const phrases = {
-    phrase1: "New and refined!",
+    phrase1: "Redisigned and Restyled!",
     phrase2: "Check out jose's site!",
-    phrase3: "Fresh out the oven!",
-    phrase4: `Finally a "official" release!`,
+    phrase3: "I liek css :)",
+    phrase4: "These are inspired by minecraft.",
     phrase5: "V3.0!!!",
-    phrase6: "back to school...",
-    phrase7: `Better`,
-    phrase8: `Faster`,
+    phrase6: "Homework sucks",
+    phrase7: `Improved`,
+    phrase8: `Restyled`,
     phrase9: `Remade`,
-    phrase10: `Nice Design!!!`
+    phrase10: `Cats are cool!`
 };
 
 let phrasenum = Math.floor(Math.random() * 10) + 1;
@@ -145,37 +160,44 @@ buttons.forEach(button => {
         // If statements for the toggles
         if (activeButton === "about") {
             mainright.innerHTML = about;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
         }
 
         if (activeButton === "info") {
             mainright.innerHTML = info;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
         }
 
         if (activeButton === "subpages") {
             mainright.innerHTML = subpages;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
         }
 
         if (activeButton === "news") {
             mainright.innerHTML = news;
-            document.getElementById('mainright').classList = "sidebar sideadjust";
+            mainright.classList = "sidebar sideadjust";
         }
 
-        if (activeButton === "main") {
+       if (activeButton === "main") {
             mainright.innerHTML = main;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
+
+            document.getElementById("cat").src = imgsave;
         }
 
         if (activeButton === "journal") {
             mainright.innerHTML = journal;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
         }
 
         if (activeButton === "contact") {
             mainright.innerHTML = contact;
-            document.getElementById('mainright').classList = "mainright";
+            mainright.classList = "mainright";
+        }
+
+        if (activeButton === "hints") {
+            mainright.innerHTML = hints;
+            mainright.classList = "mainright";
         }
     });
 });
@@ -201,5 +223,34 @@ function checkNewsVisibility() {
     }
 }
 
+function leftHide() { 
+  const left = document.getElementById("mainleft"); 
+  const right = document.getElementById("mainright"); 
+
+  if (left && right) {
+    left.classList.toggle("hide"); 
+    right.classList.toggle("lefthide"); 
+  }
+}
+
 window.addEventListener("resize", checkNewsVisibility);
 checkNewsVisibility();
+
+let imgsave = "";
+
+async function getRandomCat() {
+    const response = await fetch(
+        "https://api.thecatapi.com/v1/images/search"
+    );
+
+    const data = await response.json();
+
+    imgsave = data[0].url;
+    document.getElementById("cat").src = imgsave;
+}
+
+getRandomCat();
+
+function fullscreen() {
+    document.documentElement.requestFullscreen();
+}
