@@ -136,7 +136,7 @@ checkNewsVisibility();
 
 let imgsave = "";
 
-async function getRandomCat() {
+/* async function getRandomCat() {
     const response = await fetch(
         "https://api.thecatapi.com/v1/images/search"
     );
@@ -147,7 +147,7 @@ async function getRandomCat() {
     document.getElementById("cat").src = imgsave;
 }
 
-getRandomCat();
+getRandomCat(); */
 
 function fullscreen() {
     document.documentElement.requestFullscreen();

@@ -18,7 +18,7 @@ const about = `
 <div class="brdouble"></div>
 <p> -South Park 2026 </p>
 <div class="br"></div>
-<p>Version: Public Release 1.3.1</p>
+<p>Version: Public Release 1.3.2</p>
 <div class="br"></div>`
 //<p>Random cats provided by thecatapi.com</p>`;
 
